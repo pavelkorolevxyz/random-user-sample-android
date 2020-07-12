@@ -52,10 +52,6 @@ android {
         isCheckReleaseBuilds = false
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -64,17 +60,34 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
+
+    packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/license.txt")
+        exclude("META-INF/NOTICE")
+        exclude("META-INF/NOTICE.txt")
+        exclude("META-INF/notice.txt")
+        exclude("META-INF/ASL2.0")
+        exclude("META-INF/*.kotlin_module")
+    }
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":ui"))
+    implementation(project(":feature-splash:api"))
+    implementation(project(":feature-splash:impl"))
+    implementation(project(":feature-userlist:api"))
+    implementation(project(":feature-userlist:impl"))
+
     implementation(Dependencies.dagger)
     kapt(Dependencies.daggerCompiler)
 
-    implementation(Dependencies.androidxCoreKtx)
     implementation(Dependencies.androidxViewModel)
     implementation(Dependencies.androidxLifecycleRuntime)
     implementation(Dependencies.androidxRecyclerView)
-    implementation(Dependencies.material)
 
     implementation(Dependencies.cicerone)
 

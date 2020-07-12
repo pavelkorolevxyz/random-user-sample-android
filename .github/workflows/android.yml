@@ -32,5 +32,5 @@ jobs:
             -   name: Upload APK
                 uses: actions/upload-artifact@v1
                 with:
-                    name: crown-android
+                    name: random-user-sample-android
                     path: app/build/outputs/apk/release/app-release.apk

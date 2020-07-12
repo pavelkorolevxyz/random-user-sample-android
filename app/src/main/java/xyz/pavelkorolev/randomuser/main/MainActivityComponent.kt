@@ -8,20 +8,27 @@ import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.di.NavigationModule
 import xyz.pavelkorolev.randomuser.di.NavigationScope
-import xyz.pavelkorolev.randomuser.splash.SplashFragmentDependencies
+import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureModule
+import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureModule
 
 @NavigationScope
 @Component(
     modules = [
-        NavigationModule::class
+        NavigationModule::class,
+        SplashFeatureModule::class,
+        UserListFeatureModule::class
     ]
 )
-interface MainActivityComponent : SplashFragmentDependencies {
+interface MainActivityComponent : SplashFeatureDependencies {
 
     fun navigatorHolder(): NavigatorHolder
     override fun router(): Router
 
     fun navigator(): Navigator
+
+    fun splashFeatureApi(): SplashFeatureApi
 
     @Component.Factory
     interface Factory {

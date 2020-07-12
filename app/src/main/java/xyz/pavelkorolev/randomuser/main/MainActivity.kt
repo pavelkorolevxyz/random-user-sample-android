@@ -4,12 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
-import xyz.pavelkorolev.randomuser.extensions.lazyUi
-import xyz.pavelkorolev.randomuser.splash.SplashFragmentDependencies
-import xyz.pavelkorolev.randomuser.splash.SplashScreen
+import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
+import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
 
-class MainActivity : AppCompatActivity(), SplashFragmentDependencies.DepProvider {
+class MainActivity : AppCompatActivity(), SplashFeatureDependencies.DepProvider {
 
     private val component: MainActivityComponent by lazyUi {
         DaggerMainActivityComponent.factory().create(this)
@@ -19,19 +18,19 @@ class MainActivity : AppCompatActivity(), SplashFragmentDependencies.DepProvider
         component.navigatorHolder()
     }
 
-    private val router: Router by lazyUi {
-        component.router()
-    }
-
     private val navigator: Navigator by lazy {
         component.navigator()
+    }
+
+    private val splashFeatureApi: SplashFeatureApi by lazy {
+        component.splashFeatureApi()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState != null) return
-        router.navigateTo(SplashScreen())
+        splashFeatureApi.setRootSplash()
     }
 
     override fun onResumeFragments() {
@@ -44,5 +43,5 @@ class MainActivity : AppCompatActivity(), SplashFragmentDependencies.DepProvider
         super.onPause()
     }
 
-    override fun provideSplashFragmentDependencies(): SplashFragmentDependencies = component
+    override fun provideSplashFragmentDependencies(): SplashFeatureDependencies = component
 }

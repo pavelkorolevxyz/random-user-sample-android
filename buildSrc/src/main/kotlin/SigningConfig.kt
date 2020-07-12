@@ -1,5 +1,5 @@
 import java.io.File
-import java.util.*
+import java.util.Properties
 
 /**
  * Data class describing keystore properties to use on signing
