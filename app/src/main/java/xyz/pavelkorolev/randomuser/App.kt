@@ -3,22 +3,12 @@ package xyz.pavelkorolev.randomuser
 import android.app.Activity
 import android.app.Application
 import androidx.fragment.app.Fragment
-import ru.terrakok.cicerone.Cicerone
-import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
+import xyz.pavelkorolev.randomuser.di.DaggerAppComponent
 
 class App : Application() {
 
-    private lateinit var cicerone: Cicerone<Router>
-    val router: Router
-        get() = cicerone.router
-    val navigatorHolder: NavigatorHolder
-        get() = cicerone.navigatorHolder
-
-    override fun onCreate() {
-        super.onCreate()
-
-        cicerone = Cicerone.create()
+    private val component by lazy {
+        DaggerAppComponent.factory().create(this)
     }
 
     companion object {

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -64,6 +65,9 @@ android {
 dependencies {
     implementation(Dependencies.androidxCoreKtx)
     implementation(Dependencies.material)
+
+    implementation(Dependencies.dagger)
+    kapt(Dependencies.daggerCompiler)
 
     implementation(Dependencies.cicerone)
 
