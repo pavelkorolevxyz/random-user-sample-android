@@ -8,6 +8,10 @@ class UserListViewModel : ViewModel() {
         load()
     }
 
+    fun onAddButtonClick() {
+        // TODO route to add
+    }
+
     private fun load() {
         // TODO load saved users
     }
