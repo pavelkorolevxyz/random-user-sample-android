@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
-import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
-import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
+import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
 
 class MainActivity : AppCompatActivity(), SplashFeatureDependencies.DepProvider {
 

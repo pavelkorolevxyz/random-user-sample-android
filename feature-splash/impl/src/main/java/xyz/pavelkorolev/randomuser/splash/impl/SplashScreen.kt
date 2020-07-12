@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.splash
+package xyz.pavelkorolev.randomuser.splash.impl
 
 import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen

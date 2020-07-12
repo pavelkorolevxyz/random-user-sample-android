@@ -1,10 +1,10 @@
-package xyz.pavelkorolev.randomuser.splash.di
+package xyz.pavelkorolev.randomuser.splash.impl.di
 
 import androidx.fragment.app.Fragment
 import dagger.BindsInstance
 import dagger.Component
 import ru.terrakok.cicerone.Router
-import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
+import xyz.pavelkorolev.randomuser.userlist.api.UserListFeatureApi
 
 @Component(
     dependencies = [

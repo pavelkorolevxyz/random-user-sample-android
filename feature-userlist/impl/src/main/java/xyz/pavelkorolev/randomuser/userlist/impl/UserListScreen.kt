@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist
+package xyz.pavelkorolev.randomuser.userlist.impl
 
 import androidx.fragment.app.Fragment
 import ru.terrakok.cicerone.android.support.SupportAppScreen

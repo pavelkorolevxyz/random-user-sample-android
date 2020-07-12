@@ -8,10 +8,10 @@ import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.di.NavigationModule
 import xyz.pavelkorolev.randomuser.di.NavigationScope
-import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
-import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
-import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureModule
-import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureModule
+import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
+import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureModule
+import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureModule
 
 @NavigationScope
 @Component(

@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist.di
+package xyz.pavelkorolev.randomuser.userlist.impl.di
 
 import androidx.fragment.app.Fragment
 import dagger.BindsInstance

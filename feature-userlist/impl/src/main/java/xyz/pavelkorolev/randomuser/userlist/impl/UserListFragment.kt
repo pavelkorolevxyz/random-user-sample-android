@@ -1,14 +1,15 @@
-package xyz.pavelkorolev.randomuser.userlist
+package xyz.pavelkorolev.randomuser.userlist.impl
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import xyz.pavelkorolev.randomuser.userlist.R
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
-import xyz.pavelkorolev.randomuser.userlist.di.DaggerUserListFeatureComponent
-import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureComponent
-import xyz.pavelkorolev.randomuser.userlist.di.UserListFragmentDependencies
+import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureComponent
+import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
+import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFragmentDependencies
 
 class UserListFragment : Fragment(R.layout.user_list_fragment) {
 
