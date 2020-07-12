@@ -80,4 +80,6 @@ lint/intermediates/
 lint/generated/
 lint/outputs/
 lint/tmp/
-# lint/reports/
+
+# Keystore login/password for release apk building
+keystore.properties
