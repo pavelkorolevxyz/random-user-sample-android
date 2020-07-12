@@ -63,11 +63,14 @@ android {
 }
 
 dependencies {
-    implementation(Dependencies.androidxCoreKtx)
-    implementation(Dependencies.material)
-
     implementation(Dependencies.dagger)
     kapt(Dependencies.daggerCompiler)
+
+    implementation(Dependencies.androidxCoreKtx)
+    implementation(Dependencies.androidxViewModel)
+    implementation(Dependencies.androidxLifecycleRuntime)
+    implementation(Dependencies.androidxRecyclerView)
+    implementation(Dependencies.material)
 
     implementation(Dependencies.cicerone)
 
