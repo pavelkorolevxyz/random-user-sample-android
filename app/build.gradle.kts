@@ -65,5 +65,7 @@ dependencies {
     implementation(Dependencies.androidxCoreKtx)
     implementation(Dependencies.material)
 
+    implementation(Dependencies.cicerone)
+
     debugImplementation(Dependencies.leakCanary)
 }

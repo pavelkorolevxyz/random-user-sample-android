@@ -27,4 +27,6 @@ object Dependencies {
     const val material = "com.google.android.material:material:${Versions.material}"
 
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:2.3"
+
+    const val cicerone = "ru.terrakok.cicerone:cicerone:5.1.1"
 }
