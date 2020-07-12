@@ -37,5 +37,4 @@ class NavigationModule {
     fun provideNavigator(
         activity: FragmentActivity
     ): Navigator = SupportAppNavigator(activity, android.R.id.content)
-
 }

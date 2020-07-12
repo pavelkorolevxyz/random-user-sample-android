@@ -15,5 +15,4 @@ class App : Application() {
         fun get(activity: Activity): App = activity.application as App
         fun get(fragment: Fragment): App = get(fragment.requireActivity())
     }
-
 }

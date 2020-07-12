@@ -45,5 +45,4 @@ class MainActivity : AppCompatActivity(), SplashFragmentDependencies.DepProvider
     }
 
     override fun provideSplashFragmentDependencies(): SplashFragmentDependencies = component
-
 }

@@ -3,3 +3,7 @@ indent_style = space
 indent_size = 4
 insert_final_newline = true
 max_line_length = 120
+
+[*.{kt,kts}]
+# noinspection EditorConfigKeyCorrectness
+disabled_rules=import-ordering
