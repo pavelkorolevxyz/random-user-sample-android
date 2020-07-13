@@ -11,6 +11,7 @@ import xyz.pavelkorolev.randomuser.di.NavigationScope
 import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureModule
+import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureModule
 
 @NavigationScope
@@ -21,7 +22,8 @@ import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureModule
         UserListFeatureModule::class
     ]
 )
-interface MainActivityComponent : SplashFeatureDependencies {
+interface MainActivityComponent : SplashFeatureDependencies,
+    UserListFeatureDependencies {
 
     fun navigatorHolder(): NavigatorHolder
     override fun router(): Router

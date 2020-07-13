@@ -40,7 +40,6 @@ dependencies {
     kapt(Dependencies.daggerCompiler)
 
     implementation(Dependencies.androidxViewModel)
-    implementation(Dependencies.androidxLifecycleRuntime)
     implementation(Dependencies.androidxRecyclerView)
 
     implementation(Dependencies.cicerone)

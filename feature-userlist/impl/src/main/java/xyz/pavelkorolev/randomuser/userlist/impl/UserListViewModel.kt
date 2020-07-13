@@ -1,15 +1,13 @@
 package xyz.pavelkorolev.randomuser.userlist.impl
 
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 class UserListViewModel : ViewModel() {
 
-    init {
-        load()
-    }
-
     fun onAddButtonClick() {
-        // TODO route to add
+        load()
     }
 
     private fun load() {

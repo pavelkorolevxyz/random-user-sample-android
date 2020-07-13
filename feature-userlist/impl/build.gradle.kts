@@ -31,8 +31,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation(project(":ui"))
     implementation(project(":feature-userlist:api"))
+
+    implementation(Dependencies.coroutinesAndroid)
 
     implementation(Dependencies.dagger)
     kapt(Dependencies.daggerCompiler)

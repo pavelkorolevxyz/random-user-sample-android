@@ -7,8 +7,11 @@ import ru.terrakok.cicerone.NavigatorHolder
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 
-class MainActivity : AppCompatActivity(), SplashFeatureDependencies.DepProvider {
+class MainActivity : AppCompatActivity(),
+    SplashFeatureDependencies.DepProvider,
+    UserListFeatureDependencies.DepProvider {
 
     private val component: MainActivityComponent by lazyUi {
         DaggerMainActivityComponent.factory().create(this)
@@ -44,4 +47,6 @@ class MainActivity : AppCompatActivity(), SplashFeatureDependencies.DepProvider 
     }
 
     override fun provideSplashFragmentDependencies(): SplashFeatureDependencies = component
+
+    override fun provideUserListFragmentDependencies(): UserListFeatureDependencies = component
 }

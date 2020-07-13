@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import xyz.pavelkorolev.randomuser.userlist.R
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
 import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
-import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFragmentDependencies
+import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 
-class UserListFragment : Fragment(R.layout.user_list_fragment) {
+class UserListFragment : Fragment() {
 
-    private val component: UserListFeatureComponent by lazy {
-        val provider = activity as UserListFragmentDependencies.DepProvider
+    private val component: UserListFeatureComponent by lazyUi {
+        val provider = activity as UserListFeatureDependencies.DepProvider
         DaggerUserListFeatureComponent.factory()
             .create(
                 this,
@@ -22,7 +23,9 @@ class UserListFragment : Fragment(R.layout.user_list_fragment) {
             )
     }
 
-    private val viewModel = UserListViewModel()
+    private val viewModel by lazyUi {
+        component.viewModel()
+    }
 
     private var binding: UserListFragmentBinding? = null
 
@@ -30,14 +33,11 @@ class UserListFragment : Fragment(R.layout.user_list_fragment) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = UserListFragmentBinding.inflate(
-        inflater,
-        container,
-        false
-    ).also {
+    ): View? = UserListFragmentBinding.inflate(inflater, container, false).also {
         binding = it
     }.root
 
+    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

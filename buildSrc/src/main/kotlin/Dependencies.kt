@@ -7,6 +7,7 @@ object Dependencies {
 
     object Versions {
         const val kotlin = "1.3.72"
+        const val coroutinesVersion = "1.3.7"
         const val material = "1.3.0-alpha01"
         const val dagger = "2.28.1"
         const val androidxLifecycle = "2.3.0-alpha05"
@@ -23,6 +24,9 @@ object Dependencies {
         "com.github.ben-manes.versions",
         "0.28.0"
     )
+
+    // Kotlin
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
 
     // AndroidX
     const val androidxCoreKtx = "androidx.core:core-ktx:1.5.0-alpha01"

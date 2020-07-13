@@ -85,10 +85,6 @@ dependencies {
     implementation(Dependencies.dagger)
     kapt(Dependencies.daggerCompiler)
 
-    implementation(Dependencies.androidxViewModel)
-    implementation(Dependencies.androidxLifecycleRuntime)
-    implementation(Dependencies.androidxRecyclerView)
-
     implementation(Dependencies.cicerone)
 
     debugImplementation(Dependencies.leakCanary)
