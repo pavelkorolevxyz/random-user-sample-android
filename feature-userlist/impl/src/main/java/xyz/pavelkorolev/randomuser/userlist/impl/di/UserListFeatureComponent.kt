@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.terrakok.cicerone.Router
-import xyz.pavelkorolev.randomuser.userlist.impl.UserListViewModel
+import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
 
 @Component(
     modules = [

@@ -33,6 +33,7 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":ui"))
+    implementation(project(":network"))
     implementation(project(":feature-userlist:api"))
 
     implementation(Dependencies.coroutinesAndroid)
@@ -43,6 +44,7 @@ dependencies {
     implementation(Dependencies.androidxViewModel)
     implementation(Dependencies.androidxLifecycleRuntime)
     implementation(Dependencies.androidxRecyclerView)
+    implementation(Dependencies.androidxSwipeRefreshLayout)
 
     implementation(Dependencies.cicerone)
 }

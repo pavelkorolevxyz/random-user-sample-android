@@ -14,6 +14,7 @@ buildscript {
 plugins {
     id(Dependencies.ktlintPlugin.id) version Dependencies.ktlintPlugin.version
     id(Dependencies.versionsPlugin.id) version Dependencies.versionsPlugin.version
+    id(Dependencies.kotlinxSerializationPlugin.id) version Dependencies.kotlinxSerializationPlugin.version
 }
 
 allprojects {

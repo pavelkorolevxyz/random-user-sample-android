@@ -1,11 +1,15 @@
-package xyz.pavelkorolev.randomuser.userlist.impl
+package xyz.pavelkorolev.randomuser.userlist.impl.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
 import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureComponent
@@ -23,6 +27,7 @@ class UserListFragment : Fragment() {
             )
     }
 
+    @ExperimentalCoroutinesApi
     private val viewModel by lazyUi {
         component.viewModel()
     }
@@ -45,6 +50,24 @@ class UserListFragment : Fragment() {
         val addButton = binding.addButton
         addButton.setOnClickListener {
             viewModel.onAddButtonClick()
+        }
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.onRefresh()
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.loadingStateFlow
+                .onEach { isLoading ->
+                    binding.swipeRefreshLayout.isRefreshing = isLoading
+                }
+                .collect()
+
+            viewModel.usersStateFlow
+                .onEach { users ->
+                    Toast.makeText(requireContext(), users.toString(), Toast.LENGTH_SHORT).show()
+                }
+                .collect()
         }
     }
 
