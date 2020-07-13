@@ -7,6 +7,7 @@ import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.engine.okhttp.OkHttpConfig
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.features.logging.LogLevel
 import io.ktor.client.features.logging.Logger
 import io.ktor.client.features.logging.Logging
 import kotlinx.serialization.json.Json
@@ -21,6 +22,7 @@ object HttpClientFactory {
 
     private fun HttpClientConfig<OkHttpConfig>.installLogging() {
         install(Logging) {
+            level = LogLevel.BODY
             logger = object : Logger {
                 override fun log(message: String) {
                     Log.d("API", message)

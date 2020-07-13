@@ -47,4 +47,6 @@ dependencies {
     implementation(Dependencies.androidxSwipeRefreshLayout)
 
     implementation(Dependencies.cicerone)
+    implementation(Dependencies.groupie)
+    implementation(Dependencies.groupieViewBinding)
 }

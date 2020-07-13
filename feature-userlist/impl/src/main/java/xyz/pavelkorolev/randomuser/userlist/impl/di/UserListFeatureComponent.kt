@@ -39,5 +39,4 @@ class UserListViewModelModule {
     @ExperimentalCoroutinesApi
     @Provides
     fun provideViewModel(): UserListViewModel = UserListViewModel()
-
 }

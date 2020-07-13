@@ -4,17 +4,22 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
 import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
+import xyz.pavelkorolev.randomuser.userlist.impl.models.fullName
+import xyz.pavelkorolev.randomuser.userlist.impl.view.models.UserListItem
 
 class UserListFragment : Fragment() {
 
@@ -56,16 +61,25 @@ class UserListFragment : Fragment() {
             viewModel.onRefresh()
         }
 
+        val adapter = GroupAdapter<GroupieViewHolder>()
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        binding.recyclerView.adapter = adapter
+
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.loadingStateFlow
                 .onEach { isLoading ->
                     binding.swipeRefreshLayout.isRefreshing = isLoading
                 }
                 .collect()
+        }
 
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.usersStateFlow
+                .map { users ->
+                    users.map { UserListItem(it.fullName) } // TODO move to mapper
+                }
                 .onEach { users ->
-                    Toast.makeText(requireContext(), users.toString(), Toast.LENGTH_SHORT).show()
+                    adapter.update(users)
                 }
                 .collect()
         }

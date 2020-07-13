@@ -12,6 +12,7 @@ object Dependencies {
         const val material = "1.3.0-alpha01"
         const val dagger = "2.28.1"
         const val androidxLifecycle = "2.3.0-alpha05"
+        const val groupie = "2.8.0"
     }
 
     // Gradle Plugins
@@ -52,4 +53,7 @@ object Dependencies {
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:2.4"
 
     const val cicerone = "ru.terrakok.cicerone:cicerone:5.1.1"
+
+    const val groupie = "com.github.lisawray.groupie:groupie:${Versions.groupie}"
+    const val groupieViewBinding = "com.github.lisawray.groupie:groupie-viewbinding:${Versions.groupie}"
 }

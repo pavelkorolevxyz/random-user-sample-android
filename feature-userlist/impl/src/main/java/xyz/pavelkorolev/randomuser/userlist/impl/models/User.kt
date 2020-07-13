@@ -8,4 +8,4 @@ data class User(
     val lastName: String
 )
 
-fun User.fullName() = "$firstName $lastName"
+val User.fullName get() = "$firstName $lastName"

@@ -19,8 +19,12 @@ class UserListViewModel : ViewModel() {
     private val _usersStateFlow: MutableStateFlow<List<User>> = MutableStateFlow(emptyList())
     val usersStateFlow: StateFlow<List<User>> get() = _usersStateFlow
 
-    private val _loadingStateFlow = MutableStateFlow(false)
+    private val _loadingStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val loadingStateFlow: StateFlow<Boolean> get() = _loadingStateFlow
+
+    init {
+        load()
+    }
 
     private fun load() {
         viewModelScope.launch {

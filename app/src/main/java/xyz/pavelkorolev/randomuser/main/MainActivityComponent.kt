@@ -22,7 +22,8 @@ import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureModule
         UserListFeatureModule::class
     ]
 )
-interface MainActivityComponent : SplashFeatureDependencies,
+interface MainActivityComponent :
+    SplashFeatureDependencies,
     UserListFeatureDependencies {
 
     fun navigatorHolder(): NavigatorHolder

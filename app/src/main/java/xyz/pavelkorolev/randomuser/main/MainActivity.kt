@@ -9,7 +9,8 @@ import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 
-class MainActivity : AppCompatActivity(),
+class MainActivity :
+    AppCompatActivity(),
     SplashFeatureDependencies.DepProvider,
     UserListFeatureDependencies.DepProvider {
 
