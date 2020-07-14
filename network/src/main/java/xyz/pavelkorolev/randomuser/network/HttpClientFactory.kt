@@ -4,7 +4,6 @@ import android.util.Log
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.okhttp.OkHttp
-import io.ktor.client.engine.okhttp.OkHttpConfig
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.features.json.serializer.KotlinxSerializer
 import io.ktor.client.features.logging.LogLevel
@@ -15,15 +14,17 @@ import kotlinx.serialization.json.JsonConfiguration
 
 object HttpClientFactory {
 
-    fun create(): HttpClient = HttpClient(OkHttp) {
-        if (BuildConfig.DEBUG) installLogging()
+    fun create(
+        isLoggingEnabled: Boolean = false
+    ): HttpClient = HttpClient(OkHttp) {
+        if (isLoggingEnabled) installLogging()
         installJson()
     }
 
-    private fun HttpClientConfig<OkHttpConfig>.installLogging() {
+    private fun HttpClientConfig<*>.installLogging() {
         install(Logging) {
             level = LogLevel.BODY
-            logger = object : Logger {
+            logger = object : Logger { // TODO inject
                 override fun log(message: String) {
                     Log.d("API", message)
                 }
@@ -31,7 +32,7 @@ object HttpClientFactory {
         }
     }
 
-    private fun HttpClientConfig<OkHttpConfig>.installJson() {
+    private fun HttpClientConfig<*>.installJson() {
         install(JsonFeature) {
             serializer = KotlinxSerializer(
                 Json(

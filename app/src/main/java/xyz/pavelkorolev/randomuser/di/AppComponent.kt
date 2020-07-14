@@ -3,9 +3,15 @@ package xyz.pavelkorolev.randomuser.di
 import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
+import xyz.pavelkorolev.randomuser.main.MainActivityDependencies
 
-@Component
-abstract class AppComponent {
+@NetworkScope
+@Component(
+    modules = [
+        NetworkModule::class
+    ]
+)
+interface AppComponent : MainActivityDependencies {
 
     @Component.Factory
     interface Factory {

@@ -1,12 +1,17 @@
 package xyz.pavelkorolev.randomuser.userlist.impl.di
 
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import dagger.Binds
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
-import dagger.Provides
+import dagger.multibindings.IntoMap
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.terrakok.cicerone.Router
+import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
+import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelKey
 import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
 
 @Component(
@@ -21,8 +26,7 @@ interface UserListFeatureComponent {
 
     fun router(): Router
 
-    @ExperimentalCoroutinesApi
-    fun viewModel(): UserListViewModel
+    fun viewModelFactory(): ViewModelProvider.Factory
 
     @Component.Factory
     interface Factory {
@@ -33,10 +37,16 @@ interface UserListFeatureComponent {
     }
 }
 
-@Module
-class UserListViewModelModule {
+@Module(
+    includes = [
+        ViewModelFactoryModule::class
+    ]
+)
+abstract class UserListViewModelModule {
 
     @ExperimentalCoroutinesApi
-    @Provides
-    fun provideViewModel(): UserListViewModel = UserListViewModel()
+    @Binds
+    @IntoMap
+    @ViewModelKey(UserListViewModel::class)
+    abstract fun provideViewModel(impl: UserListViewModel): ViewModel
 }

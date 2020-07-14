@@ -15,7 +15,12 @@ class MainActivity :
     UserListFeatureDependencies.DepProvider {
 
     private val component: MainActivityComponent by lazyUi {
-        DaggerMainActivityComponent.factory().create(this)
+        val provider = application as MainActivityDependencies.DepProvider
+        DaggerMainActivityComponent.factory()
+            .create(
+                this,
+                provider.provideMainActivityDependencies()
+            )
     }
 
     private val navigatorHolder: NavigatorHolder by lazyUi {

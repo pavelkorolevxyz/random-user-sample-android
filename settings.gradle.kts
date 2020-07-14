@@ -1,12 +1,13 @@
 include(
     ":app",
     ":core",
-    ":ui",
-    ":network",
+    ":di:viewmodel",
     ":feature-splash:api",
     ":feature-splash:impl",
     ":feature-userlist:api",
-    ":feature-userlist:impl"
+    ":feature-userlist:impl",
+    ":network",
+    ":ui"
 )
 
 rootProject.name = "random-user-sample-android"

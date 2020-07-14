@@ -6,15 +6,14 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import xyz.pavelkorolev.randomuser.network.RandomUserApiService
 import xyz.pavelkorolev.randomuser.userlist.impl.domain.UserListInteractor
 import xyz.pavelkorolev.randomuser.userlist.impl.models.User
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-class UserListViewModel : ViewModel() {
-
-    private val getUserListUseCase: UserListInteractor =
-        UserListInteractor(RandomUserApiService()) // TODO inject in constructor
+class UserListViewModel @Inject constructor(
+    private val userListInteractor: UserListInteractor
+) : ViewModel() {
 
     private val _usersStateFlow: MutableStateFlow<List<User>> = MutableStateFlow(emptyList())
     val usersStateFlow: StateFlow<List<User>> get() = _usersStateFlow
@@ -29,7 +28,7 @@ class UserListViewModel : ViewModel() {
     private fun load() {
         viewModelScope.launch {
             _loadingStateFlow.value = true
-            val users = getUserListUseCase.getUsers()
+            val users = userListInteractor.getUsers()
             _loadingStateFlow.value = false
             _usersStateFlow.value = users
         }

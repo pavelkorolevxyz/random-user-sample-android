@@ -6,9 +6,9 @@ import io.ktor.client.request.parameter
 import xyz.pavelkorolev.randomuser.network.models.UserNetworkEntity
 import xyz.pavelkorolev.randomuser.network.models.UserResponseNetworkEntity
 
-class RandomUserApiService {
-
-    private val client: HttpClient = HttpClientFactory.create() // TODO move to constructor
+class RandomUserApiService(
+    private val client: HttpClient
+) {
 
     suspend fun getUsers(
         amount: Int

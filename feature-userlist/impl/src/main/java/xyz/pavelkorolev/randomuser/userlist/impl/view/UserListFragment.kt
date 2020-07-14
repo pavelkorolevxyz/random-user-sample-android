@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
@@ -19,6 +20,7 @@ import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureCompone
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.impl.models.fullName
+import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
 import xyz.pavelkorolev.randomuser.userlist.impl.view.models.UserListItem
 
 class UserListFragment : Fragment() {
@@ -34,7 +36,7 @@ class UserListFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     private val viewModel by lazyUi {
-        component.viewModel()
+        ViewModelProvider(this, component.viewModelFactory())[UserListViewModel::class.java]
     }
 
     private var binding: UserListFragmentBinding? = null

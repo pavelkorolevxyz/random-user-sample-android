@@ -76,16 +76,20 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":ui"))
+    implementation(project(":di:viewmodel"))
     implementation(project(":feature-splash:api"))
     implementation(project(":feature-splash:impl"))
     implementation(project(":feature-userlist:api"))
     implementation(project(":feature-userlist:impl"))
+    implementation(project(":network"))
+    implementation(project(":ui"))
 
     implementation(Dependencies.dagger)
     kapt(Dependencies.daggerCompiler)
 
     implementation(Dependencies.cicerone)
+
+    implementation(Dependencies.ktorAndroid)
 
     debugImplementation(Dependencies.leakCanary)
 }
