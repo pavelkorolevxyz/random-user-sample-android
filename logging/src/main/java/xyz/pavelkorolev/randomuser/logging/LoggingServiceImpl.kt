@@ -3,7 +3,8 @@ package xyz.pavelkorolev.randomuser.logging
 import timber.log.Timber
 import xyz.pavelkorolev.randomuser.startup.StartupService
 
-class LoggingServiceImpl : LoggingService,
+class LoggingServiceImpl :
+    LoggingService,
     StartupService {
 
     override fun startUp() {
