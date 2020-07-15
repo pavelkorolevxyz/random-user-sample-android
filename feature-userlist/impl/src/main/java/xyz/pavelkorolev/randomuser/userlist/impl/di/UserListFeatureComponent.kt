@@ -42,11 +42,11 @@ interface UserListFeatureComponent {
         ViewModelFactoryModule::class
     ]
 )
-abstract class UserListViewModelModule {
+internal abstract class UserListViewModelModule {
 
     @ExperimentalCoroutinesApi
     @Binds
     @IntoMap
     @ViewModelKey(UserListViewModel::class)
-    abstract fun provideViewModel(impl: UserListViewModel): ViewModel
+    abstract fun bindViewModel(impl: UserListViewModel): ViewModel
 }

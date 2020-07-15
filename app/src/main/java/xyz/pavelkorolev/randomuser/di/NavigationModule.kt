@@ -11,10 +11,10 @@ import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import javax.inject.Scope
 
 @Scope
-annotation class NavigationScope
+internal annotation class NavigationScope
 
 @Module
-class NavigationModule {
+internal object NavigationModule {
 
     @NavigationScope
     @Provides

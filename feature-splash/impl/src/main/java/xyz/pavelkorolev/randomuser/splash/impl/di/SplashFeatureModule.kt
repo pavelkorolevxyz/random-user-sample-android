@@ -9,5 +9,5 @@ import xyz.pavelkorolev.randomuser.splash.impl.SplashFeatureApiImpl
 abstract class SplashFeatureModule {
 
     @Binds
-    abstract fun bindsSplashFeatureApi(impl: SplashFeatureApiImpl): SplashFeatureApi
+    abstract fun bindSplashFeatureApi(impl: SplashFeatureApiImpl): SplashFeatureApi
 }

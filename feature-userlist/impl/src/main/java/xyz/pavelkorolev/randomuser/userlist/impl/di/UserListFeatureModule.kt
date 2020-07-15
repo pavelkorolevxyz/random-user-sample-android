@@ -8,5 +8,5 @@ import xyz.pavelkorolev.randomuser.userlist.api.UserListFeatureApi
 abstract class UserListFeatureModule {
 
     @Binds
-    abstract fun bindsUserListFeatureApi(impl: UserListFeatureApiImpl): UserListFeatureApi
+    abstract fun bindUserListFeatureApi(impl: UserListFeatureApiImpl): UserListFeatureApi
 }

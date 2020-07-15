@@ -27,6 +27,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":logging"))
+
     implementation(Dependencies.ktorAndroid)
     implementation(Dependencies.ktorOkHttp)
     implementation(Dependencies.ktorLogging)

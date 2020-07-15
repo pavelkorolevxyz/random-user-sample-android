@@ -6,7 +6,9 @@ include(
     ":feature-splash:impl",
     ":feature-userlist:api",
     ":feature-userlist:impl",
+    ":logging",
     ":network",
+    ":startup",
     ":ui"
 )
 

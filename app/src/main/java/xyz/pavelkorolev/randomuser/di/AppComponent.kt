@@ -4,14 +4,19 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import xyz.pavelkorolev.randomuser.main.MainActivityDependencies
+import xyz.pavelkorolev.randomuser.startup.StartupService
 
+@LoggingScope
 @NetworkScope
 @Component(
     modules = [
+        LoggingModule::class,
         NetworkModule::class
     ]
 )
 interface AppComponent : MainActivityDependencies {
+
+    fun startupServices(): Set<StartupService>
 
     @Component.Factory
     interface Factory {

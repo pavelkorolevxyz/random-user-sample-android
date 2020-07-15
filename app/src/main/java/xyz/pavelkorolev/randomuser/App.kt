@@ -12,6 +12,14 @@ class App : Application(), MainActivityDependencies.DepProvider {
         DaggerAppComponent.factory().create(this)
     }
 
+    override fun onCreate() {
+        super.onCreate()
+
+        for (service in component.startupServices()) {
+            service.startUp()
+        }
+    }
+
     override fun provideMainActivityDependencies(): MainActivityDependencies = component
 
     companion object {

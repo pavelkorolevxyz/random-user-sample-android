@@ -26,5 +26,6 @@ android {
 }
 
 dependencies {
+    api(Dependencies.kotlin)
     api(Dependencies.androidxCoreKtx)
 }

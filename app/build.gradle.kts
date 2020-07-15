@@ -81,7 +81,9 @@ dependencies {
     implementation(project(":feature-splash:impl"))
     implementation(project(":feature-userlist:api"))
     implementation(project(":feature-userlist:impl"))
+    implementation(project(":logging"))
     implementation(project(":network"))
+    implementation(project(":startup"))
     implementation(project(":ui"))
 
     implementation(Dependencies.dagger)
