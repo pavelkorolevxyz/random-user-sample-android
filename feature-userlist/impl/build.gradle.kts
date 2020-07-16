@@ -32,10 +32,11 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":ui"))
+    implementation(project(":database"))
     implementation(project(":di:viewmodel"))
-    implementation(project(":network"))
     implementation(project(":feature-userlist:api"))
+    implementation(project(":network"))
+    implementation(project(":ui"))
 
     implementation(Dependencies.coroutinesAndroid)
 

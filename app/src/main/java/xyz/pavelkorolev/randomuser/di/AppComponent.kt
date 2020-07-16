@@ -8,10 +8,12 @@ import xyz.pavelkorolev.randomuser.startup.StartupService
 
 @LoggingScope
 @NetworkScope
+@DatabaseScope
 @Component(
     modules = [
         LoggingModule::class,
-        NetworkModule::class
+        NetworkModule::class,
+        DatabaseModule::class
     ]
 )
 interface AppComponent : MainActivityDependencies {

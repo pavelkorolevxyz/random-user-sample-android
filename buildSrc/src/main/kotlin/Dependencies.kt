@@ -13,11 +13,13 @@ object Dependencies {
         const val dagger = "2.28.1"
         const val androidxLifecycle = "2.3.0-alpha05"
         const val groupie = "2.8.0"
+        const val sqlDelight = "1.4.0"
     }
 
     // Gradle Plugins
-    const val androidPlugin = "com.android.tools.build:gradle:4.0.0"
+    const val androidPlugin = "com.android.tools.build:gradle:4.0.1"
     const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val sqlDelightPlugin = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}"
     val kotlinxSerializationPlugin = GradlePlugin(
         "org.jetbrains.kotlin.plugin.serialization",
         Versions.kotlin
@@ -53,6 +55,7 @@ object Dependencies {
 
     const val timber = "com.jakewharton.timber:timber:4.7.1"
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:2.4"
+    const val sqlDelightAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
 
     const val cicerone = "ru.terrakok.cicerone:cicerone:5.1.1"
 

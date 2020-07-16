@@ -36,6 +36,12 @@ class UserListViewModel @Inject constructor(
 
     fun onAddButtonClick() {
         // TODO navigate to add users screen
+        viewModelScope.launch {
+            _loadingStateFlow.value = true
+            userListInteractor.createRandomUser()
+            _loadingStateFlow.value = false
+            load()
+        }
     }
 
     fun onRefresh() {
