@@ -13,7 +13,11 @@ class UserListInteractor @Inject constructor(
 
     suspend fun getUsers(): List<User> = userDatabaseRepository.selectUsers()
         .map {
-            User(it.first_name ?: "", it.last_name ?: "") // TODO move to mapper
+            User(
+                id = it.id,
+                firstName = it.first_name ?: "",
+                lastName = it.last_name ?: ""
+            ) // TODO move to mapper
         }
 
     suspend fun createRandomUser() {

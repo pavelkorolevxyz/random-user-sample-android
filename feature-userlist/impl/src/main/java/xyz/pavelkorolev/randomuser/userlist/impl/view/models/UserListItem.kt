@@ -6,8 +6,9 @@ import xyz.pavelkorolev.randomuser.userlist.R
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListItemBinding
 
 data class UserListItem(
+    val identifier: Long,
     val name: String
-) : BindableItem<UserListItemBinding>() {
+) : BindableItem<UserListItemBinding>(identifier) {
 
     override fun getLayout(): Int = R.layout.user_list_item
 

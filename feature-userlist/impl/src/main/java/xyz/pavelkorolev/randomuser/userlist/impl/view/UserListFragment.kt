@@ -12,6 +12,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
@@ -21,6 +22,7 @@ import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.impl.models.fullName
 import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
+import xyz.pavelkorolev.randomuser.userlist.impl.view.models.EmptyListItem
 import xyz.pavelkorolev.randomuser.userlist.impl.view.models.UserListItem
 
 class UserListFragment : Fragment() {
@@ -77,11 +79,16 @@ class UserListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.usersStateFlow
+                .drop(1)
                 .map { users ->
-                    users.map { UserListItem(it.fullName) } // TODO move to mapper
+                    users.map { UserListItem(it.id, it.fullName) } // TODO move to mapper
                 }
                 .onEach { users ->
-                    adapter.update(users)
+                    if (users.isEmpty()) {
+                        adapter.update(listOf(EmptyListItem))
+                    } else {
+                        adapter.update(users)
+                    }
                 }
                 .collect()
         }
