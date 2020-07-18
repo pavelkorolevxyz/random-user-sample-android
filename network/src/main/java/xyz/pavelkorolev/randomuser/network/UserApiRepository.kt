@@ -6,7 +6,7 @@ import io.ktor.client.request.parameter
 import xyz.pavelkorolev.randomuser.network.models.UserNetworkEntity
 import xyz.pavelkorolev.randomuser.network.models.UserResponseNetworkEntity
 
-class RandomUserApiService(
+class UserApiRepository(
     private val client: HttpClient
 ) {
 

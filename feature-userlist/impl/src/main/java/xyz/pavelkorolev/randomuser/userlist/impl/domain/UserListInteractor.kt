@@ -3,12 +3,12 @@ package xyz.pavelkorolev.randomuser.userlist.impl.domain
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.model.UserDatabaseEntity
 import xyz.pavelkorolev.randomuser.model.User
-import xyz.pavelkorolev.randomuser.network.RandomUserApiService
+import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import javax.inject.Inject
 
 class UserListInteractor @Inject constructor(
     private val userDatabaseRepository: UserDatabaseRepository,
-    private val userApiService: RandomUserApiService
+    private val userApiRepository: UserApiRepository
 ) {
 
     suspend fun getUsers(): List<User> = userDatabaseRepository.selectUsers()
@@ -21,7 +21,7 @@ class UserListInteractor @Inject constructor(
         }
 
     suspend fun createRandomUser() {
-        val users = userApiService.getUsers(1)
+        val users = userApiRepository.getUsers(1)
         val user = users.first()
         val userDatabaseEntity = UserDatabaseEntity(
             id = 0,

@@ -6,7 +6,7 @@ import io.ktor.client.HttpClient
 import xyz.pavelkorolev.randomuser.BuildConfig
 import xyz.pavelkorolev.randomuser.logging.LoggingService
 import xyz.pavelkorolev.randomuser.network.HttpClientFactory
-import xyz.pavelkorolev.randomuser.network.RandomUserApiService
+import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import javax.inject.Scope
 
 @Scope
@@ -26,5 +26,5 @@ internal object NetworkModule {
 
     @NetworkScope
     @Provides
-    fun provideApiService(client: HttpClient): RandomUserApiService = RandomUserApiService(client)
+    fun provideUserApiRepository(client: HttpClient): UserApiRepository = UserApiRepository(client)
 }

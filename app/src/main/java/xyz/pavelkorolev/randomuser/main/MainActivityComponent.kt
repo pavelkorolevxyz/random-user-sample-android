@@ -10,7 +10,7 @@ import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.di.NavigationModule
 import xyz.pavelkorolev.randomuser.di.NavigationScope
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
-import xyz.pavelkorolev.randomuser.network.RandomUserApiService
+import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureModule
@@ -23,7 +23,7 @@ interface MainActivityDependencies {
         fun provideMainActivityDependencies(): MainActivityDependencies
     }
 
-    fun apiService(): RandomUserApiService
+    fun userApiRepository(): UserApiRepository
 
     fun userDatabaseRepository(): UserDatabaseRepository
 }
