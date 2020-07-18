@@ -83,7 +83,8 @@ dependencies {
     implementation(project(":feature-userlist:api"))
     implementation(project(":feature-userlist:impl"))
     implementation(project(":logging"))
-    implementation(project(":network"))
+    implementation(project(":network:api"))
+    implementation(project(":network:impl"))
     implementation(project(":startup"))
     implementation(project(":ui"))
 

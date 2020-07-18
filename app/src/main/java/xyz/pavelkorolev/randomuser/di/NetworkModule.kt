@@ -7,6 +7,7 @@ import xyz.pavelkorolev.randomuser.BuildConfig
 import xyz.pavelkorolev.randomuser.logging.LoggingService
 import xyz.pavelkorolev.randomuser.network.HttpClientFactory
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
+import xyz.pavelkorolev.randomuser.network.UserApiRepositoryImpl
 import javax.inject.Scope
 
 @Scope
@@ -26,5 +27,5 @@ internal object NetworkModule {
 
     @NetworkScope
     @Provides
-    fun provideUserApiRepository(client: HttpClient): UserApiRepository = UserApiRepository(client)
+    fun provideUserApiRepository(client: HttpClient): UserApiRepository = UserApiRepositoryImpl(client)
 }

@@ -9,7 +9,8 @@ include(
     ":feature-userlist:impl",
     ":logging",
     ":model",
-    ":network",
+    ":network:api",
+    ":network:impl",
     ":startup",
     ":ui"
 )

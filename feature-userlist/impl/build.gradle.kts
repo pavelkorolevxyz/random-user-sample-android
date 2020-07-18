@@ -36,7 +36,7 @@ dependencies {
     implementation(project(":di:viewmodel"))
     implementation(project(":feature-userlist:api"))
     implementation(project(":model"))
-    implementation(project(":network"))
+    implementation(project(":network:api"))
     implementation(project(":ui"))
 
     implementation(Dependencies.coroutinesAndroid)

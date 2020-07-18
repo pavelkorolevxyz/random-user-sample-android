@@ -25,8 +25,8 @@ class UserListInteractor @Inject constructor(
         val user = users.first()
         val userDatabaseEntity = UserDatabaseEntity(
             id = 0,
-            first_name = user.name.first,
-            last_name = user.name.last
+            first_name = user.firstName,
+            last_name = user.lastName
         )
         userDatabaseRepository.insertUsers(listOf(userDatabaseEntity))
     }

@@ -26,6 +26,8 @@
             <option value="$PROJECT_DIR$/logging" />
             <option value="$PROJECT_DIR$/model" />
             <option value="$PROJECT_DIR$/network" />
+            <option value="$PROJECT_DIR$/network/api" />
+            <option value="$PROJECT_DIR$/network/impl" />
             <option value="$PROJECT_DIR$/startup" />
             <option value="$PROJECT_DIR$/ui" />
           </set>
