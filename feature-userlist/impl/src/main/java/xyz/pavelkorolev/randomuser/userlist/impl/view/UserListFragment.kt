@@ -16,11 +16,11 @@ import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
+import xyz.pavelkorolev.randomuser.model.fullName
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
 import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
-import xyz.pavelkorolev.randomuser.userlist.impl.models.fullName
 import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
 import xyz.pavelkorolev.randomuser.userlist.impl.view.models.EmptyListItem
 import xyz.pavelkorolev.randomuser.userlist.impl.view.models.UserListItem

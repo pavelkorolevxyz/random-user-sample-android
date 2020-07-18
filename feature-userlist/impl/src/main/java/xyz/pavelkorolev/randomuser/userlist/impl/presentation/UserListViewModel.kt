@@ -6,8 +6,8 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.userlist.impl.domain.UserListInteractor
-import xyz.pavelkorolev.randomuser.userlist.impl.models.User
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi

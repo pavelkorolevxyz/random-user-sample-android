@@ -2,8 +2,8 @@ package xyz.pavelkorolev.randomuser.userlist.impl.domain
 
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.model.UserDatabaseEntity
+import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.network.RandomUserApiService
-import xyz.pavelkorolev.randomuser.userlist.impl.models.User
 import javax.inject.Inject
 
 class UserListInteractor @Inject constructor(

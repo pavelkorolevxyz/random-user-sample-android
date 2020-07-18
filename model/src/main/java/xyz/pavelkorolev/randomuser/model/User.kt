@@ -1,8 +1,5 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.models
+package xyz.pavelkorolev.randomuser.model
 
-/**
- * TODO should be available from multiple modules
- */
 data class User(
     val id: Long,
     val firstName: String,
