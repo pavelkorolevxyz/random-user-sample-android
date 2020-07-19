@@ -8,7 +8,7 @@ import xyz.pavelkorolev.randomuser.model.User
 class UserDatabaseRepositoryImpl(
     databaseService: DatabaseService,
     private val userMapper: UserDatabaseEntityMapper
-): UserDatabaseRepository {
+) : UserDatabaseRepository {
 
     private val database = databaseService.getDatabase()
 
