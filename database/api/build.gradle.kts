@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("com.squareup.sqldelight")
 }
 
 android {
@@ -29,7 +28,4 @@ android {
 dependencies {
     implementation(project(":core"))
     implementation(project(":model"))
-
-    implementation(Dependencies.coroutinesAndroid)
-    implementation(Dependencies.sqlDelightAndroid)
 }

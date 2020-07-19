@@ -5,14 +5,14 @@ import kotlinx.coroutines.withContext
 import xyz.pavelkorolev.randomuser.database.domain.UserDatabaseEntityMapper
 import xyz.pavelkorolev.randomuser.model.User
 
-class UserDatabaseRepository(
+class UserDatabaseRepositoryImpl(
     databaseService: DatabaseService,
     private val userMapper: UserDatabaseEntityMapper
-) {
+): UserDatabaseRepository {
 
     private val database = databaseService.getDatabase()
 
-    suspend fun insertUsers(users: List<User>) = withContext(Dispatchers.IO) {
+    override suspend fun insertUsers(users: List<User>) = withContext(Dispatchers.IO) {
         val databaseUsers = users.map { userMapper.reverseMap(it) }
         database.userQueries.transaction {
             for (user in databaseUsers) {
@@ -24,7 +24,7 @@ class UserDatabaseRepository(
         }
     }
 
-    suspend fun selectUsers(): List<User> = withContext(Dispatchers.IO) {
+    override suspend fun selectUsers(): List<User> = withContext(Dispatchers.IO) {
         val databaseUsers = database.userQueries.selectAll().executeAsList()
         databaseUsers.map { userMapper.map(it) }
     }

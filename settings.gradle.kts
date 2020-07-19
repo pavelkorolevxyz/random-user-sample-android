@@ -1,7 +1,8 @@
 include(
     ":app",
     ":core",
-    ":database",
+    ":database:api",
+    ":database:impl",
     ":di:viewmodel",
     ":feature-splash:api",
     ":feature-splash:impl",

@@ -76,7 +76,8 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":database"))
+    implementation(project(":database:api"))
+    implementation(project(":database:impl"))
     implementation(project(":di:viewmodel"))
     implementation(project(":feature-splash:api"))
     implementation(project(":feature-splash:impl"))
