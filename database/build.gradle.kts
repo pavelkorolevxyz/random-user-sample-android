@@ -28,6 +28,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":model"))
 
     implementation(Dependencies.coroutinesAndroid)
     implementation(Dependencies.sqlDelightAndroid)

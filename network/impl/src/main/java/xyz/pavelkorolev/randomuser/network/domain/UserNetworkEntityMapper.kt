@@ -13,5 +13,4 @@ class UserNetworkEntityMapper : Mapper<UserNetworkEntity, User> {
             it.name.last
         )
     }
-
 }
