@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.view
+package xyz.pavelkorolev.randomuser.userlist.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,12 +17,12 @@ import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.model.fullName
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
-import xyz.pavelkorolev.randomuser.userlist.impl.di.DaggerUserListFeatureComponent
-import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureComponent
-import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
-import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
-import xyz.pavelkorolev.randomuser.userlist.impl.view.models.EmptyListItem
-import xyz.pavelkorolev.randomuser.userlist.impl.view.models.UserListItem
+import xyz.pavelkorolev.randomuser.userlist.di.DaggerUserListFeatureComponent
+import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureComponent
+import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
+import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
+import xyz.pavelkorolev.randomuser.userlist.view.models.EmptyListItem
+import xyz.pavelkorolev.randomuser.userlist.view.models.UserListItem
 
 class UserListFragment : Fragment() {
 

@@ -1,8 +1,8 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.di
+package xyz.pavelkorolev.randomuser.userlist.di
 
 import dagger.Binds
 import dagger.Module
-import xyz.pavelkorolev.randomuser.userlist.api.UserListFeatureApi
+import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 
 @Module
 abstract class UserListFeatureModule {

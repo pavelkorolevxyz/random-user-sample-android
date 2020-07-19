@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.domain
+package xyz.pavelkorolev.randomuser.userlist.domain
 
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.model.User

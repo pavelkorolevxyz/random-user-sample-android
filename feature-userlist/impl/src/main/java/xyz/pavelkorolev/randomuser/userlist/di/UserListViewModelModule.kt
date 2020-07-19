@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.di
+package xyz.pavelkorolev.randomuser.userlist.di
 
 import androidx.lifecycle.ViewModel
 import dagger.Binds
@@ -7,7 +7,7 @@ import dagger.multibindings.IntoMap
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelKey
-import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
+import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 
 @Module(
     includes = [

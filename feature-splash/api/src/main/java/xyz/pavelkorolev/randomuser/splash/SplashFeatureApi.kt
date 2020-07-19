@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.splash.api
+package xyz.pavelkorolev.randomuser.splash
 
 interface SplashFeatureApi {
 

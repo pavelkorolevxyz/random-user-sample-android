@@ -27,9 +27,6 @@ jobs:
             -   name: Change wrapper permissions
                 run: chmod +x ./gradlew
 
-            -   name: Clean
-                run: ./gradlew clean
-
             -   name: Android Lint
                 run: ./gradlew lintRelease
 

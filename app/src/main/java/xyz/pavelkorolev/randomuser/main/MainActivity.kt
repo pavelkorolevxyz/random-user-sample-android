@@ -6,9 +6,9 @@ import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
-import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
-import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
-import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
+import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
 
 class MainActivity :
     AppCompatActivity(),
