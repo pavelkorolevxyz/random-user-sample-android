@@ -8,12 +8,17 @@ import xyz.pavelkorolev.randomuser.logging.LoggingService
 import xyz.pavelkorolev.randomuser.network.HttpClientFactory
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import xyz.pavelkorolev.randomuser.network.UserApiRepositoryImpl
+import xyz.pavelkorolev.randomuser.network.domain.UserNetworkEntityMapper
 import javax.inject.Scope
 
 @Scope
 internal annotation class NetworkScope
 
-@Module
+@Module(
+    includes = [
+        NetworkMapperModule::class
+    ]
+)
 internal object NetworkModule {
 
     @NetworkScope
@@ -27,5 +32,16 @@ internal object NetworkModule {
 
     @NetworkScope
     @Provides
-    fun provideUserApiRepository(client: HttpClient): UserApiRepository = UserApiRepositoryImpl(client)
+    fun provideUserApiRepository(
+        client: HttpClient,
+        userMapper: UserNetworkEntityMapper
+    ): UserApiRepository = UserApiRepositoryImpl(client, userMapper)
+}
+
+@Module
+internal object NetworkMapperModule {
+
+    @NetworkScope
+    @Provides
+    fun provideUserMapper(): UserNetworkEntityMapper = UserNetworkEntityMapper()
 }
