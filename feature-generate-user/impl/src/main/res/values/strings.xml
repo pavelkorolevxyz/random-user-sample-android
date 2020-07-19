@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_generate">Generate</string>
+    <string name="generate_user_title">Generate user</string>
+</resources>

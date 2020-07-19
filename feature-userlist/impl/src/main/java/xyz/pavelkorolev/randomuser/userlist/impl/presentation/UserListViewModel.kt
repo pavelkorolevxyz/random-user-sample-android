@@ -6,13 +6,15 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import xyz.pavelkorolev.randomuser.generateuser.api.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.model.User
-import xyz.pavelkorolev.randomuser.userlist.impl.domain.UserListInteractor
+import xyz.pavelkorolev.randomuser.userlist.impl.domain.LoadUsersUseCase
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 class UserListViewModel @Inject constructor(
-    private val userListInteractor: UserListInteractor
+    private val loadUsersUseCase: LoadUsersUseCase,
+    private val generateUserFeatureApi: GenerateUserFeatureApi
 ) : ViewModel() {
 
     private val _usersStateFlow: MutableStateFlow<List<User>> = MutableStateFlow(emptyList())
@@ -28,20 +30,14 @@ class UserListViewModel @Inject constructor(
     private fun load() {
         viewModelScope.launch {
             _loadingStateFlow.value = true
-            val users = userListInteractor.getUsers()
+            val users = loadUsersUseCase()
             _loadingStateFlow.value = false
             _usersStateFlow.value = users
         }
     }
 
     fun onAddButtonClick() {
-        // TODO navigate to add users screen
-        viewModelScope.launch {
-            _loadingStateFlow.value = true
-            userListInteractor.createRandomUser()
-            _loadingStateFlow.value = false
-            load()
-        }
+        generateUserFeatureApi.navigateToGenerateUser()
     }
 
     fun onRefresh() {

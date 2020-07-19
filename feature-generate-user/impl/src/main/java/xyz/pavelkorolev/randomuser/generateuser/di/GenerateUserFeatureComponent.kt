@@ -1,32 +1,32 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.di
+package xyz.pavelkorolev.randomuser.generateuser.di
 
 import androidx.fragment.app.Fragment
 import dagger.BindsInstance
 import dagger.Component
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.terrakok.cicerone.Router
-import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
+import xyz.pavelkorolev.randomuser.generateuser.presentation.GenerateUserViewModel
 
 @Component(
     modules = [
-        UserListViewModelModule::class
+        GenerateUserViewModelModule::class
     ],
     dependencies = [
-        UserListFeatureDependencies::class
+        GenerateUserFeatureDependencies::class
     ]
 )
-interface UserListFeatureComponent {
+interface GenerateUserFeatureComponent {
 
     fun router(): Router
 
     @ExperimentalCoroutinesApi
-    fun viewModel(): UserListViewModel
+    fun viewModel(): GenerateUserViewModel
 
     @Component.Factory
     interface Factory {
         fun create(
             @BindsInstance fragment: Fragment,
-            dependencies: UserListFeatureDependencies
-        ): UserListFeatureComponent
+            dependencies: GenerateUserFeatureDependencies
+        ): GenerateUserFeatureComponent
     }
 }

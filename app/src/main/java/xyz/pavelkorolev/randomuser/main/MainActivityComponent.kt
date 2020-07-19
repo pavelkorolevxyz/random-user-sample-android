@@ -10,6 +10,8 @@ import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.di.NavigationModule
 import xyz.pavelkorolev.randomuser.di.NavigationScope
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
+import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
+import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureModule
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
@@ -34,7 +36,8 @@ interface MainActivityDependencies {
         NavigationModule::class,
         ViewModelFactoryModule::class,
         SplashFeatureModule::class,
-        UserListFeatureModule::class
+        UserListFeatureModule::class,
+        GenerateUserFeatureModule::class
     ],
     dependencies = [
         MainActivityDependencies::class
@@ -42,7 +45,8 @@ interface MainActivityDependencies {
 )
 interface MainActivityComponent :
     SplashFeatureDependencies,
-    UserListFeatureDependencies {
+    UserListFeatureDependencies,
+    GenerateUserFeatureDependencies {
 
     fun navigatorHolder(): NavigatorHolder
 
