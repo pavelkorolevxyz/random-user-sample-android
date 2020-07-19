@@ -1,7 +1,7 @@
-package xyz.pavelkorolev.randomuser.splash.impl.di
+package xyz.pavelkorolev.randomuser.splash.di
 
 import ru.terrakok.cicerone.Router
-import xyz.pavelkorolev.randomuser.userlist.api.UserListFeatureApi
+import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 
 interface SplashFeatureDependencies {
 

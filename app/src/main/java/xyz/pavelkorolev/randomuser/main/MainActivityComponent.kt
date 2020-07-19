@@ -13,11 +13,11 @@ import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureModule
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
-import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
-import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
-import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureModule
-import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
-import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureModule
+import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureModule
+import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
+import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureModule
 
 interface MainActivityDependencies {
 

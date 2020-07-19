@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.generateuser.api
+package xyz.pavelkorolev.randomuser.generateuser
 
 interface GenerateUserFeatureApi {
 

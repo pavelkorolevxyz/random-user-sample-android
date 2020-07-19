@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.view.models
+package xyz.pavelkorolev.randomuser.userlist.view.models
 
 import android.view.View
 import com.xwray.groupie.viewbinding.BindableItem

@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.userlist.api
+package xyz.pavelkorolev.randomuser.userlist
 
 interface UserListFeatureApi {
 

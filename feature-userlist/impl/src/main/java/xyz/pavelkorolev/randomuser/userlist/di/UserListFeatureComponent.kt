@@ -1,11 +1,11 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.di
+package xyz.pavelkorolev.randomuser.userlist.di
 
 import androidx.fragment.app.Fragment
 import dagger.BindsInstance
 import dagger.Component
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.terrakok.cicerone.Router
-import xyz.pavelkorolev.randomuser.userlist.impl.presentation.UserListViewModel
+import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 
 @Component(
     modules = [

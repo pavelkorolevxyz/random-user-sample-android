@@ -1,4 +1,4 @@
-package xyz.pavelkorolev.randomuser.splash.impl
+package xyz.pavelkorolev.randomuser.splash.view
 
 import android.os.Bundle
 import android.os.Handler
@@ -6,10 +6,11 @@ import android.os.Looper
 import android.view.View
 import androidx.fragment.app.Fragment
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
-import xyz.pavelkorolev.randomuser.splash.impl.di.DaggerSplashFeatureComponent
-import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureComponent
-import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
-import xyz.pavelkorolev.randomuser.userlist.api.UserListFeatureApi
+import xyz.pavelkorolev.randomuser.splash.R
+import xyz.pavelkorolev.randomuser.splash.di.DaggerSplashFeatureComponent
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureComponent
+import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
+import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 
 class SplashFragment : Fragment(R.layout.splash_fragment) {
 
