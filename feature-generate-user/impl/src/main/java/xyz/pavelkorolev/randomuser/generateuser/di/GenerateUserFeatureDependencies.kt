@@ -1,17 +1,14 @@
-package xyz.pavelkorolev.randomuser.userlist.impl.di
+package xyz.pavelkorolev.randomuser.generateuser.di
 
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
-import xyz.pavelkorolev.randomuser.generateuser.api.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
 
-interface UserListFeatureDependencies {
+interface GenerateUserFeatureDependencies {
 
     interface DepProvider {
-        fun provideUserListFragmentDependencies(): UserListFeatureDependencies
+        fun provideGenerateUserFragmentDependencies(): GenerateUserFeatureDependencies
     }
-
-    fun generateUserFeature(): GenerateUserFeatureApi
 
     fun router(): Router
 

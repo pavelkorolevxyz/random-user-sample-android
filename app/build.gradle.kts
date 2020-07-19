@@ -79,6 +79,8 @@ dependencies {
     implementation(project(":database:api"))
     implementation(project(":database:impl"))
     implementation(project(":di:viewmodel"))
+    implementation(project(":feature-generate-user:api"))
+    implementation(project(":feature-generate-user:impl"))
     implementation(project(":feature-splash:api"))
     implementation(project(":feature-splash:impl"))
     implementation(project(":feature-userlist:api"))

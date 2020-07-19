@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
+import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
 import xyz.pavelkorolev.randomuser.splash.api.SplashFeatureApi
 import xyz.pavelkorolev.randomuser.splash.impl.di.SplashFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
@@ -12,7 +13,8 @@ import xyz.pavelkorolev.randomuser.userlist.impl.di.UserListFeatureDependencies
 class MainActivity :
     AppCompatActivity(),
     SplashFeatureDependencies.DepProvider,
-    UserListFeatureDependencies.DepProvider {
+    UserListFeatureDependencies.DepProvider,
+    GenerateUserFeatureDependencies.DepProvider {
 
     private val component: MainActivityComponent by lazyUi {
         val provider = application as MainActivityDependencies.DepProvider
@@ -55,4 +57,6 @@ class MainActivity :
     override fun provideSplashFragmentDependencies(): SplashFeatureDependencies = component
 
     override fun provideUserListFragmentDependencies(): UserListFeatureDependencies = component
+
+    override fun provideGenerateUserFragmentDependencies(): GenerateUserFeatureDependencies = component
 }

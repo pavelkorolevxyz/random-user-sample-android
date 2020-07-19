@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
@@ -37,8 +36,8 @@ class UserListFragment : Fragment() {
     }
 
     @ExperimentalCoroutinesApi
-    private val viewModel by lazyUi {
-        ViewModelProvider(this, component.viewModelFactory())[UserListViewModel::class.java]
+    private val viewModel: UserListViewModel by lazyUi {
+        component.viewModel()
     }
 
     private var binding: UserListFragmentBinding? = null

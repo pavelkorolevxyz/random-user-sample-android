@@ -21,5 +21,8 @@ jobs:
             -   name: Change wrapper permissions
                 run: chmod +x ./gradlew
 
+            -   name: Clean
+                run: ./gradlew clean
+
             -   name: ktlint
-                run: ./gradlew ktlintReleaseCheck
+                run: ./gradlew ktlintReleaseCheck --stacktrace

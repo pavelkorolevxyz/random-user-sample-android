@@ -35,8 +35,6 @@ dependencies {
     implementation(project(":database:api"))
     implementation(project(":di:viewmodel"))
     implementation(project(":feature-generate-user:api"))
-    implementation(project(":feature-userlist:api"))
-    implementation(project(":model"))
     implementation(project(":network:api"))
     implementation(project(":ui"))
 
@@ -48,9 +46,6 @@ dependencies {
     implementation(Dependencies.androidxViewModel)
     implementation(Dependencies.androidxLifecycleRuntime)
     implementation(Dependencies.androidxRecyclerView)
-    implementation(Dependencies.androidxSwipeRefreshLayout)
 
     implementation(Dependencies.cicerone)
-    implementation(Dependencies.groupie)
-    implementation(Dependencies.groupieViewBinding)
 }

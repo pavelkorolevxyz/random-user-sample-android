@@ -19,6 +19,9 @@
             <option value="$PROJECT_DIR$/database/impl" />
             <option value="$PROJECT_DIR$/di" />
             <option value="$PROJECT_DIR$/di/viewmodel" />
+            <option value="$PROJECT_DIR$/feature-generate-user" />
+            <option value="$PROJECT_DIR$/feature-generate-user/api" />
+            <option value="$PROJECT_DIR$/feature-generate-user/impl" />
             <option value="$PROJECT_DIR$/feature-splash" />
             <option value="$PROJECT_DIR$/feature-splash/api" />
             <option value="$PROJECT_DIR$/feature-splash/impl" />
