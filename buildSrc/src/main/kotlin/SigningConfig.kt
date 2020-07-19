@@ -50,11 +50,11 @@ fun loadSigningConfig(keystorePropertiesFile: File): SigningConfig? {
     )
 }
 
-fun loadSigningConfigFromEnvironment(): SigningConfig {
-    val keystoreFilePath = System.getenv("KEYSTORE_PATH")
-    val keystorePassword = System.getenv("KEYSTORE_PASSWORD")
-    val alias = System.getenv("KEYSTORE_ALIAS")
-    val aliasPassword = System.getenv("KEYSTORE_ALIAS_PASSWORD")
+fun loadSigningConfigFromEnvironment(): SigningConfig? {
+    val keystoreFilePath = System.getenv("KEYSTORE_PATH") ?: return null
+    val keystorePassword = System.getenv("KEYSTORE_PASSWORD") ?: return null
+    val alias = System.getenv("KEYSTORE_ALIAS") ?: return null
+    val aliasPassword = System.getenv("KEYSTORE_ALIAS_PASSWORD") ?: return null
 
     return SigningConfig(
         File(keystoreFilePath),

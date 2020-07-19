@@ -24,6 +24,7 @@ android {
             val keystorePropertiesFile = rootProject.file("keystore.properties")
             val signingConfig = loadSigningConfig(keystorePropertiesFile)
                 ?: loadSigningConfigFromEnvironment()
+                ?: return@create
 
             storeFile = keystorePropertiesFile.parentFile.resolve(signingConfig.keystoreFile)
             storePassword = signingConfig.password
