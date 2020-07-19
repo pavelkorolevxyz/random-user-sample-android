@@ -81,7 +81,11 @@ class UserListFragment : Fragment() {
             viewModel.usersStateFlow
                 .drop(1)
                 .map { users ->
-                    users.map { UserListItem(it.id, it.fullName) } // TODO move to mapper
+                    // TODO move to mapper
+                    users.map {
+                        val id = it.id ?: throw IllegalArgumentException() // TODO move check to mapper level
+                        UserListItem(id, it.fullName)
+                    }
                 }
                 .onEach { users ->
                     if (users.isEmpty()) {

@@ -8,9 +8,8 @@ class UserNetworkEntityMapper : Mapper<UserNetworkEntity, User> {
 
     override suspend fun map(data: UserNetworkEntity): User = data.let {
         User(
-            0, // TODO id should not be set here.
-            it.name.first,
-            it.name.last
+            firstName = it.name.first,
+            lastName = it.name.last
         )
     }
 }

@@ -16,9 +16,9 @@ class UserDatabaseEntityMapper : Mapper<UserDatabaseEntity, User> {
 
     override suspend fun reverseMap(data: User): UserDatabaseEntity = data.let {
         UserDatabaseEntity(
-            id = it.id,
             first_name = it.firstName,
-            last_name = it.lastName
+            last_name = it.lastName,
+            id = -1
         )
     }
 }
