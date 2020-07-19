@@ -1,34 +1,41 @@
-name: Random User Android
+name: Post Merge
 
 on:
     push:
         branches: [ develop ]
-    pull_request:
-        branches: [ develop ]
 
 jobs:
     pipeline:
+
         runs-on: ubuntu-latest
+
         env:
             KEYSTORE_PATH: ${{ secrets.KEYSTORE_PATH }}
             KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
             KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
             KEYSTORE_ALIAS_PASSWORD: ${{ secrets.KEYSTORE_ALIAS_PASSWORD }}
+
         steps:
             -   name: Checkout
                 uses: actions/checkout@v2
+
             -   name: Set up environment
                 uses: actions/setup-java@v1
                 with:
                     java-version: 1.8
+
             -   name: Change wrapper permissions
                 run: chmod +x ./gradlew
+
             -   name: Android Lint
                 run: ./gradlew lintRelease
+
             -   name: ktlint
                 run: ./gradlew ktlintReleaseCheck
+
             -   name: Assemble
                 run: ./gradlew assembleRelease
+
             -   name: Upload APK
                 uses: actions/upload-artifact@v1
                 with:
