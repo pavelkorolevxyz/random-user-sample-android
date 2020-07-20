@@ -9,7 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.map
@@ -35,7 +34,6 @@ class UserListFragment : Fragment() {
             )
     }
 
-    @ExperimentalCoroutinesApi
     private val viewModel: UserListViewModel by lazyUi {
         component.viewModel()
     }
@@ -50,7 +48,6 @@ class UserListFragment : Fragment() {
         binding = it
     }.root
 
-    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

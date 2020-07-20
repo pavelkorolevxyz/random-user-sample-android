@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
@@ -28,7 +27,6 @@ class GenerateUserFragment : Fragment(R.layout.generate_user_fragment) {
             )
     }
 
-    @ExperimentalCoroutinesApi
     private val viewModel: GenerateUserViewModel by lazyUi {
         component.viewModel()
     }
@@ -43,7 +41,6 @@ class GenerateUserFragment : Fragment(R.layout.generate_user_fragment) {
         binding = it
     }.root
 
-    @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
