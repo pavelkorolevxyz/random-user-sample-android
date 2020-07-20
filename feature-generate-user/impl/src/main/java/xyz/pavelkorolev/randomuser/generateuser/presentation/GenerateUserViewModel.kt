@@ -10,7 +10,7 @@ import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.generateuser.domain.GenerateUsersUseCase
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
+@OptIn(ExperimentalCoroutinesApi::class)
 class GenerateUserViewModel @Inject constructor(
     private val generateUsersUseCase: GenerateUsersUseCase,
     private val router: Router

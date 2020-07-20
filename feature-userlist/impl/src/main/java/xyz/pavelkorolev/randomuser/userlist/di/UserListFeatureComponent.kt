@@ -3,7 +3,6 @@ package xyz.pavelkorolev.randomuser.userlist.di
 import androidx.fragment.app.Fragment
 import dagger.BindsInstance
 import dagger.Component
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 
@@ -19,7 +18,6 @@ interface UserListFeatureComponent {
 
     fun router(): Router
 
-    @ExperimentalCoroutinesApi
     fun viewModel(): UserListViewModel
 
     @Component.Factory

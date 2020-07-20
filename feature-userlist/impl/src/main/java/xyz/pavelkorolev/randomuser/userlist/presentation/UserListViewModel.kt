@@ -11,7 +11,7 @@ import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.userlist.domain.LoadUsersUseCase
 import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
+@OptIn(ExperimentalCoroutinesApi::class)
 class UserListViewModel @Inject constructor(
     private val loadUsersUseCase: LoadUsersUseCase,
     private val generateUserFeatureApi: GenerateUserFeatureApi

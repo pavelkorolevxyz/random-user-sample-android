@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelKey
 import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
@@ -16,7 +15,6 @@ import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 )
 internal abstract class UserListViewModelModule {
 
-    @ExperimentalCoroutinesApi
     @Binds
     @IntoMap
     @ViewModelKey(UserListViewModel::class)

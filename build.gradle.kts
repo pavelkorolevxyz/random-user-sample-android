@@ -37,4 +37,8 @@ subprojects {
             reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.JSON)
         }
     }
+
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {
+        kotlinOptions.freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    }
 }
