@@ -29,11 +29,11 @@ class MainActivity :
         component.navigatorHolder()
     }
 
-    private val navigator: Navigator by lazy {
+    private val navigator: Navigator by lazyUi {
         component.navigator()
     }
 
-    private val splashFeatureApi: SplashFeatureApi by lazy {
+    private val splashFeatureApi: SplashFeatureApi by lazyUi {
         component.splashFeatureApi()
     }
 
