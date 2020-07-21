@@ -8,7 +8,7 @@ class LoadUsersUseCase @Inject constructor(
     private val userDatabaseRepository: UserDatabaseRepository
 ) {
 
-    suspend operator fun invoke(): List<User> {
+    suspend operator fun invoke(): Result<List<User>> {
         return userDatabaseRepository.selectUsers()
     }
 }

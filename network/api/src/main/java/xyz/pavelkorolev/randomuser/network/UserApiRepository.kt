@@ -4,5 +4,5 @@ import xyz.pavelkorolev.randomuser.model.User
 
 interface UserApiRepository {
 
-    suspend fun getUsers(amount: Int): List<User>
+    suspend fun getUsers(amount: Int): Result<List<User>>
 }

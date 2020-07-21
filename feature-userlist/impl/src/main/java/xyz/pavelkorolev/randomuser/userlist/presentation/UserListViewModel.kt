@@ -3,8 +3,12 @@ package xyz.pavelkorolev.randomuser.userlist.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.channels.BroadcastChannel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.model.User
@@ -23,6 +27,12 @@ class UserListViewModel @Inject constructor(
     private val _loadingStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val loadingStateFlow: StateFlow<Boolean> get() = _loadingStateFlow
 
+    private val _errorBroadcastChannel: BroadcastChannel<Throwable> = BroadcastChannel(1)
+
+    @OptIn(FlowPreview::class)
+    val errorFlow: Flow<Throwable>
+        get() = _errorBroadcastChannel.asFlow()
+
     init {
         load()
     }
@@ -30,9 +40,14 @@ class UserListViewModel @Inject constructor(
     private fun load() {
         viewModelScope.launch {
             _loadingStateFlow.value = true
-            val users = loadUsersUseCase()
+            loadUsersUseCase()
+                .onSuccess { users ->
+                    _usersStateFlow.value = users
+                }
+                .onFailure {
+                    _errorBroadcastChannel.send(it)
+                }
             _loadingStateFlow.value = false
-            _usersStateFlow.value = users
         }
     }
 
