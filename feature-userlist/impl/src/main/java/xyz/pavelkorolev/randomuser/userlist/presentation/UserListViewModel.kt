@@ -21,8 +21,8 @@ class UserListViewModel @Inject constructor(
     private val generateUserFeatureApi: GenerateUserFeatureApi
 ) : ViewModel() {
 
-    private val _usersStateFlow: MutableStateFlow<List<User>> = MutableStateFlow(emptyList())
-    val usersStateFlow: StateFlow<List<User>> get() = _usersStateFlow
+    private val _usersStateFlow: MutableStateFlow<List<User>?> = MutableStateFlow(null)
+    val usersStateFlow: StateFlow<List<User>?> get() = _usersStateFlow
 
     private val _loadingStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val loadingStateFlow: StateFlow<Boolean> get() = _loadingStateFlow
