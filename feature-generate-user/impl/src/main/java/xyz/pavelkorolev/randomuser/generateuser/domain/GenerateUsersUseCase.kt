@@ -9,8 +9,8 @@ class GenerateUsersUseCase @Inject constructor(
     private val userDatabaseRepository: UserDatabaseRepository
 ) {
 
-    suspend operator fun invoke(count: Int) {
-        val users = userApiRepository.getUsers(count)
-        userDatabaseRepository.insertUsers(users)
+    suspend operator fun invoke(count: Int): Result<Unit> = runCatching {
+        val users = userApiRepository.getUsers(count).getOrThrow()
+        userDatabaseRepository.insertUsers(users).getOrThrow()
     }
 }

@@ -14,9 +14,11 @@ class UserApiRepositoryImpl(
 
     override suspend fun getUsers(
         amount: Int
-    ): List<User> = client.get<UserResponseNetworkEntity>(BASE_URL) {
-        parameter("results", amount)
-    }.result.map { userMapper.map(it) }
+    ): Result<List<User>> = runCatching {
+        client.get<UserResponseNetworkEntity>(BASE_URL) {
+            parameter("results", amount)
+        }.result.map { userMapper.map(it) }
+    }
 
     companion object {
         private const val BASE_URL = "https://randomuser.me/api/"
