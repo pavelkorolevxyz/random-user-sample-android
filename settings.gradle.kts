@@ -10,6 +10,7 @@ include(
     ":feature-splash:impl",
     ":feature-userlist:api",
     ":feature-userlist:impl",
+    ":list",
     ":logging",
     ":model",
     ":network:api",

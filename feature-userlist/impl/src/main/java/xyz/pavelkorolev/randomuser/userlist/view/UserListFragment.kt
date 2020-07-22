@@ -8,22 +8,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.GroupieViewHolder
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
-import xyz.pavelkorolev.randomuser.model.fullName
 import xyz.pavelkorolev.randomuser.userlist.R
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
 import xyz.pavelkorolev.randomuser.userlist.di.DaggerUserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
-import xyz.pavelkorolev.randomuser.userlist.view.models.EmptyListItem
-import xyz.pavelkorolev.randomuser.userlist.view.models.UserListItem
 
 class UserListFragment : Fragment() {
 
@@ -41,6 +34,8 @@ class UserListFragment : Fragment() {
     }
 
     private var binding: UserListFragmentBinding? = null
+
+    private val controller = UserListController()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,13 +59,12 @@ class UserListFragment : Fragment() {
             viewModel.onRefresh()
         }
 
-        val adapter = GroupAdapter<GroupieViewHolder>()
+        binding.recyclerView.adapter = controller.adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.VERTICAL,
             false
         )
-        binding.recyclerView.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.loadingStateFlow
@@ -82,20 +76,9 @@ class UserListFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.usersStateFlow
-                .mapNotNull { it }
-                .map { users ->
-                    // TODO move to mapper
-                    users.map {
-                        val id = it.id ?: throw IllegalArgumentException() // TODO move check to mapper level
-                        UserListItem(id, it.fullName)
-                    }
-                }
                 .onEach { users ->
-                    if (users.isEmpty()) {
-                        adapter.update(listOf(EmptyListItem))
-                    } else {
-                        adapter.update(users)
-                    }
+                    controller.users = users
+                    controller.requestModelBuild()
                 }
                 .collect()
         }
