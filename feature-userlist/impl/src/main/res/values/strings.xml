@@ -2,7 +2,7 @@
 <resources>
 
     <string name="user_list_title">Users</string>
-    <string name="empty_message">There are no users yet</string>
     <string name="error_unknown">Unknown error</string>
+    <string name="user_list_empty">There are no users yet</string>
 
 </resources>
