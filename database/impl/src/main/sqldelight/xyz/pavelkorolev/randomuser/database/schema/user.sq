@@ -11,3 +11,8 @@ FROM user;
 insert:
 INSERT INTO user(first_name, last_name)
 VALUES (?, ?);
+
+delete:
+DELETE
+FROM user
+WHERE id = ?;
