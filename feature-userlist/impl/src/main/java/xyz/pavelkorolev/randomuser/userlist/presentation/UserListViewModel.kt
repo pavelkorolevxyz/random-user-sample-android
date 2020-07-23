@@ -12,12 +12,14 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.model.User
+import xyz.pavelkorolev.randomuser.userlist.domain.DeleteUserUseCase
 import xyz.pavelkorolev.randomuser.userlist.domain.LoadUsersUseCase
 import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class UserListViewModel @Inject constructor(
     private val loadUsersUseCase: LoadUsersUseCase,
+    private val deleteUserUseCase: DeleteUserUseCase,
     private val generateUserFeatureApi: GenerateUserFeatureApi
 ) : ViewModel() {
 
@@ -57,5 +59,12 @@ class UserListViewModel @Inject constructor(
 
     fun onRefresh() {
         load()
+    }
+
+    fun onSwipeCompleted(id: Long) {
+        _usersStateFlow.value = _usersStateFlow.value?.filterNot { it.id == id }
+        viewModelScope.launch {
+            deleteUserUseCase(id)
+        }
     }
 }

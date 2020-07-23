@@ -7,7 +7,7 @@ import com.airbnb.epoxy.EpoxyModelWithHolder
 import xyz.pavelkorolev.randomuser.userlist.R
 
 class UserListItemModel(
-    id: Long,
+    val id: Long,
     private val name: String
 ) : EpoxyModelWithHolder<UserListItemModel.ViewHolder>() {
 

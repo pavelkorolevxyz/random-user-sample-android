@@ -12,6 +12,13 @@ class UserDatabaseRepositoryImpl(
 
     private val database = databaseService.getDatabase()
 
+    override suspend fun selectUsers(): Result<List<User>> = runCatching {
+        withContext(Dispatchers.IO) {
+            val databaseUsers = database.userQueries.selectAll().executeAsList()
+            databaseUsers.map { userMapper.map(it) }
+        }
+    }
+
     override suspend fun insertUsers(users: List<User>): Result<Unit> = runCatching {
         withContext(Dispatchers.IO) {
             val databaseUsers = users.map { userMapper.reverseMap(it) }
@@ -26,10 +33,9 @@ class UserDatabaseRepositoryImpl(
         }
     }
 
-    override suspend fun selectUsers(): Result<List<User>> = runCatching {
+    override suspend fun delete(id: Long): Result<Unit> = kotlin.runCatching {
         withContext(Dispatchers.IO) {
-            val databaseUsers = database.userQueries.selectAll().executeAsList()
-            databaseUsers.map { userMapper.map(it) }
+            database.userQueries.delete(id)
         }
     }
 }
