@@ -1,21 +1,30 @@
 package xyz.pavelkorolev.randomuser.userlist.view.models
 
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelWithHolder
+import xyz.pavelkorolev.randomuser.Image
+import xyz.pavelkorolev.randomuser.ImageCrop
+import xyz.pavelkorolev.randomuser.ImageLoader
 import xyz.pavelkorolev.randomuser.userlist.R
 
 class UserListItemModel(
     val id: Long,
-    private val name: String
+    private val name: String,
+    private val image: Image,
+    private val placeholderImage: Image.Resource,
+    private val imageLoader: ImageLoader
 ) : EpoxyModelWithHolder<UserListItemModel.ViewHolder>() {
 
     class ViewHolder : EpoxyHolder() {
+        lateinit var avatarImageView: ImageView
         lateinit var nameTextView: TextView
 
         override fun bindView(itemView: View) {
             nameTextView = itemView.findViewById(R.id.nameTextView)
+            avatarImageView = itemView.findViewById(R.id.avatarImageView)
         }
     }
 
@@ -29,6 +38,12 @@ class UserListItemModel(
 
     override fun bind(holder: ViewHolder) {
         holder.nameTextView.text = name
+        imageLoader.load(
+            holder.avatarImageView,
+            image,
+            placeholderImage,
+            crop = ImageCrop.Circle
+        )
     }
 
     override fun equals(other: Any?): Boolean {

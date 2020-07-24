@@ -37,7 +37,9 @@ class UserListFragment : Fragment() {
 
     private var binding: UserListFragmentBinding? = null
 
-    private val controller = UserListController()
+    private val controller: UserListController by lazyUi {
+        component.listController()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

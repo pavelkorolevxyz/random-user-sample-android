@@ -55,8 +55,7 @@ object Dependencies {
     const val timber = "com.jakewharton.timber:timber:4.7.1"
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:2.4"
     const val sqlDelightAndroid = "com.squareup.sqldelight:android-driver:${Versions.sqlDelight}"
-
     const val cicerone = "ru.terrakok.cicerone:cicerone:5.1.1"
-
     const val epoxy = "com.airbnb.android:epoxy:4.0.0-beta6"
+    const val coil = "io.coil-kt:coil:0.11.0"
 }

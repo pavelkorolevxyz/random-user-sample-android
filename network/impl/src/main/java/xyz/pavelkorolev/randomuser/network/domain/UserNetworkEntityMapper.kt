@@ -9,7 +9,8 @@ class UserNetworkEntityMapper : Mapper<UserNetworkEntity, User> {
     override suspend fun map(data: UserNetworkEntity): User = data.let {
         User(
             firstName = it.name.first,
-            lastName = it.name.last
+            lastName = it.name.last,
+            avatarUrl = it.picture.large
         )
     }
 }

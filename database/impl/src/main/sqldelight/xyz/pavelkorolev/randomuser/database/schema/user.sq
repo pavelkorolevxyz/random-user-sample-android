@@ -1,7 +1,8 @@
 CREATE TABLE user (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name TEXT,
-    last_name TEXT
+    last_name TEXT,
+    avatar_url TEXT
 );
 
 selectAll:
@@ -9,8 +10,8 @@ SELECT *
 FROM user;
 
 insert:
-INSERT INTO user(first_name, last_name)
-VALUES (?, ?);
+INSERT INTO user(first_name, last_name, avatar_url)
+VALUES (?, ?, ?);
 
 delete:
 DELETE
