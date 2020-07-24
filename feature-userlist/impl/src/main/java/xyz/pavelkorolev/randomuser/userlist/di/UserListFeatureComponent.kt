@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
+import xyz.pavelkorolev.randomuser.userlist.view.UserListController
 
 @Component(
     modules = [
@@ -19,6 +20,8 @@ interface UserListFeatureComponent {
     fun router(): Router
 
     fun viewModel(): UserListViewModel
+
+    fun listController(): UserListController
 
     @Component.Factory
     interface Factory {

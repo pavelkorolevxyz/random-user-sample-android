@@ -5,8 +5,9 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
+import xyz.pavelkorolev.randomuser.di.ImageLoaderModule
+import xyz.pavelkorolev.randomuser.di.ImageLoaderScope
 import xyz.pavelkorolev.randomuser.di.NavigationModule
 import xyz.pavelkorolev.randomuser.di.NavigationScope
 import xyz.pavelkorolev.randomuser.di.viewmodel.ViewModelFactoryModule
@@ -31,9 +32,11 @@ interface MainActivityDependencies {
 }
 
 @NavigationScope
+@ImageLoaderScope
 @Component(
     modules = [
         NavigationModule::class,
+        ImageLoaderModule::class,
         ViewModelFactoryModule::class,
         SplashFeatureModule::class,
         UserListFeatureModule::class,
@@ -49,8 +52,6 @@ interface MainActivityComponent :
     GenerateUserFeatureDependencies {
 
     fun navigatorHolder(): NavigatorHolder
-
-    override fun router(): Router
 
     fun navigator(): Navigator
 

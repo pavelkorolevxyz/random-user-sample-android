@@ -86,6 +86,7 @@ dependencies {
     implementation(project(":feature-splash:impl"))
     implementation(project(":feature-userlist:api"))
     implementation(project(":feature-userlist:impl"))
+    implementation(project(":image"))
     implementation(project(":logging"))
     implementation(project(":network:api"))
     implementation(project(":network:impl"))

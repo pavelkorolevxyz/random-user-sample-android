@@ -10,7 +10,8 @@ class UserDatabaseEntityMapper : Mapper<UserDatabaseEntity, User> {
         User(
             id = it.id,
             firstName = it.first_name ?: "",
-            lastName = it.last_name ?: ""
+            lastName = it.last_name ?: "",
+            avatarUrl = it.avatar_url
         )
     }
 
@@ -18,6 +19,7 @@ class UserDatabaseEntityMapper : Mapper<UserDatabaseEntity, User> {
         UserDatabaseEntity(
             first_name = it.firstName,
             last_name = it.lastName,
+            avatar_url = it.avatarUrl,
             id = -1
         )
     }

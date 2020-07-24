@@ -36,6 +36,7 @@ dependencies {
     implementation(project(":di:viewmodel"))
     implementation(project(":feature-generate-user:api"))
     implementation(project(":feature-userlist:api"))
+    implementation(project(":image"))
     implementation(project(":list"))
     implementation(project(":model"))
     implementation(project(":network:api"))

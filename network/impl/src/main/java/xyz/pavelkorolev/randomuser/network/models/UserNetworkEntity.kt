@@ -7,5 +7,8 @@ import kotlinx.serialization.Serializable
 data class UserNetworkEntity(
 
     @SerialName(value = "name")
-    val name: UserNameNetworkEntity
+    val name: UserNameNetworkEntity,
+
+    @SerialName(value = "picture")
+    val picture: PictureNetworkEntity
 )

@@ -10,4 +10,7 @@
 
     <color name="white">#ffffff</color>
 
+    <color name="avatarPlaceholderBackground">#a3a3a3</color>
+    <color name="avatarPlaceholderImage">#828282</color>
+
 </resources>

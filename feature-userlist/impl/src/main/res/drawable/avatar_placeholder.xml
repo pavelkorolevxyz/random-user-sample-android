@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/avatarPlaceholderBackground" />
+            <size
+                android:width="@dimen/list_avatar_size"
+                android:height="@dimen/list_avatar_size" />
+        </shape>
+    </item>
+    <item
+        android:width="@dimen/list_avatar_icon_size"
+        android:height="@dimen/list_avatar_icon_size"
+        android:drawable="@drawable/ic_account_placeholder"
+        android:gravity="center" />
+</layer-list>
