@@ -3,6 +3,7 @@ package xyz.pavelkorolev.randomuser.main
 import android.os.Bundle
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
+import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.BaseActivity
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
@@ -27,6 +28,10 @@ class MainActivity :
 
     private val navigatorHolder: NavigatorHolder by lazyUi {
         component.navigatorHolder()
+    }
+
+    private val router: Router by lazyUi {
+        component.router()
     }
 
     private val navigator: Navigator by lazyUi {
@@ -59,4 +64,8 @@ class MainActivity :
     override fun provideUserListFragmentDependencies(): UserListFeatureDependencies = component
 
     override fun provideGenerateUserFragmentDependencies(): GenerateUserFeatureDependencies = component
+
+    override fun onBackPressed() {
+        router.exit()
+    }
 }
