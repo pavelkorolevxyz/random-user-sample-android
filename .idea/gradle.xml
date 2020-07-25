@@ -37,6 +37,7 @@
             <option value="$PROJECT_DIR$/network/impl" />
             <option value="$PROJECT_DIR$/startup" />
             <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/updater" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

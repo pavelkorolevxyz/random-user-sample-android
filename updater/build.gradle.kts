@@ -27,6 +27,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":model"))
-    api(project(":updater"))
+
+    implementation(Dependencies.coroutinesAndroid)
 }

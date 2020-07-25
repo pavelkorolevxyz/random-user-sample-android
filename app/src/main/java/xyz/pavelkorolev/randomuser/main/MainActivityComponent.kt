@@ -6,6 +6,7 @@ import dagger.Component
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
+import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.di.ImageLoaderModule
 import xyz.pavelkorolev.randomuser.di.ImageLoaderScope
 import xyz.pavelkorolev.randomuser.di.NavigationModule
@@ -29,6 +30,8 @@ interface MainActivityDependencies {
     fun userApiRepository(): UserApiRepository
 
     fun userDatabaseRepository(): UserDatabaseRepository
+
+    fun userDatabaseUpdater(): UserDatabaseUpdater
 }
 
 @NavigationScope

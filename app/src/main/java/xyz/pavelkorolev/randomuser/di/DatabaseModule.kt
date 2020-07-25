@@ -6,6 +6,7 @@ import dagger.Provides
 import xyz.pavelkorolev.randomuser.database.DatabaseService
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepositoryImpl
+import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.database.domain.UserDatabaseEntityMapper
 import javax.inject.Scope
 
@@ -31,6 +32,10 @@ internal object DatabaseModule {
         databaseService: DatabaseService,
         userMapper: UserDatabaseEntityMapper
     ): UserDatabaseRepository = UserDatabaseRepositoryImpl(databaseService, userMapper)
+
+    @DatabaseScope
+    @Provides
+    fun provideUserDatabaseUpdater(): UserDatabaseUpdater = UserDatabaseUpdater()
 }
 
 @Module
