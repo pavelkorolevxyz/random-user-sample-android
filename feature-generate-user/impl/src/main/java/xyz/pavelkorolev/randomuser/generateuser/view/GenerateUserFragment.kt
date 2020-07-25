@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
@@ -61,7 +62,8 @@ class GenerateUserFragment : Fragment(R.layout.generate_user_fragment) {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.loadingStateFlow
                 .onEach { isLoading ->
-                    // TODO show loader
+                    binding.progressBar.isInvisible = !isLoading
+                    binding.generateButton.isEnabled = !isLoading
                 }
                 .collect()
         }
