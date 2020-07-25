@@ -9,16 +9,20 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.userlist.domain.DeleteUserUseCase
+import xyz.pavelkorolev.randomuser.userlist.domain.LoadUsersOnUpdateUseCase
 import xyz.pavelkorolev.randomuser.userlist.domain.LoadUsersUseCase
 import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class UserListViewModel @Inject constructor(
     private val loadUsersUseCase: LoadUsersUseCase,
+    private val loadUsersOnUpdateUseCase: LoadUsersOnUpdateUseCase,
     private val deleteUserUseCase: DeleteUserUseCase,
     private val generateUserFeatureApi: GenerateUserFeatureApi
 ) : ViewModel() {
@@ -36,21 +40,36 @@ class UserListViewModel @Inject constructor(
         get() = _errorBroadcastChannel.asFlow()
 
     init {
+        initLoadOnUpdate()
+
         load()
+    }
+
+    private fun initLoadOnUpdate() {
+        viewModelScope.launch {
+            loadUsersOnUpdateUseCase()
+                .onEach(::handleResult)
+                .collect()
+        }
     }
 
     private fun load() {
         viewModelScope.launch {
             _loadingStateFlow.value = true
-            loadUsersUseCase()
-                .onSuccess { users ->
-                    _usersStateFlow.value = users
-                }
-                .onFailure {
-                    _errorBroadcastChannel.send(it)
-                }
+            val result = loadUsersUseCase()
+            handleResult(result)
             _loadingStateFlow.value = false
         }
+    }
+
+    private suspend fun handleResult(result: Result<List<User>>) {
+        result
+            .onSuccess { users ->
+                _usersStateFlow.value = users
+            }
+            .onFailure {
+                _errorBroadcastChannel.send(it)
+            }
     }
 
     fun onAddButtonClick() {
