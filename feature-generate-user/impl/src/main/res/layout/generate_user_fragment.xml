@@ -23,7 +23,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <NumberPicker
@@ -32,10 +31,19 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/generate_button" />
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:indeterminate="true" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/generate_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@id/progress_bar"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/medium"
             android:text="@string/action_generate" />
