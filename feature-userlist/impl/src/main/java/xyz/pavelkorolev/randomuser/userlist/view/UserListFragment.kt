@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
+import xyz.pavelkorolev.randomuser.BaseFragment
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.list.extensions.setOnDeleteListener
 import xyz.pavelkorolev.randomuser.userlist.R
@@ -20,7 +21,7 @@ import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 import xyz.pavelkorolev.randomuser.userlist.view.models.UserListItemModel
 
-class UserListFragment : Fragment() {
+class UserListFragment : BaseFragment() {
 
     private val component: UserListFeatureComponent by lazyUi {
         val provider = activity as UserListFeatureDependencies.DepProvider

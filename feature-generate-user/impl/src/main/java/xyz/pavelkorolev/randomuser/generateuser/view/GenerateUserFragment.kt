@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
+import xyz.pavelkorolev.randomuser.BaseFragment
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.generateuser.R
 import xyz.pavelkorolev.randomuser.generateuser.databinding.GenerateUserFragmentBinding
@@ -18,7 +19,7 @@ import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureComponent
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
 import xyz.pavelkorolev.randomuser.generateuser.presentation.GenerateUserViewModel
 
-class GenerateUserFragment : Fragment(R.layout.generate_user_fragment) {
+class GenerateUserFragment : BaseFragment() {
 
     private val component: GenerateUserFeatureComponent by lazyUi {
         val provider = activity as GenerateUserFeatureDependencies.DepProvider
