@@ -1,9 +1,9 @@
 package xyz.pavelkorolev.randomuser.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
+import xyz.pavelkorolev.randomuser.BaseActivity
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
 import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
@@ -11,7 +11,7 @@ import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
 
 class MainActivity :
-    AppCompatActivity(),
+    BaseActivity(),
     SplashFeatureDependencies.DepProvider,
     UserListFeatureDependencies.DepProvider,
     GenerateUserFeatureDependencies.DepProvider {
