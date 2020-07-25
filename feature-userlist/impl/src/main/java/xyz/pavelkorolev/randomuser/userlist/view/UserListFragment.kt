@@ -104,6 +104,7 @@ class UserListFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        binding?.recyclerView?.adapter = null
         binding = null
         super.onDestroyView()
     }
