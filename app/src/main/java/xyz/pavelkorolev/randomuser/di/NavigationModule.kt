@@ -7,7 +7,7 @@ import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
+import xyz.pavelkorolev.randomuser.AppNavigator
 import javax.inject.Scope
 
 @Scope
@@ -36,5 +36,5 @@ internal object NavigationModule {
     @Provides
     fun provideNavigator(
         activity: FragmentActivity
-    ): Navigator = SupportAppNavigator(activity, android.R.id.content)
+    ): Navigator = AppNavigator(activity, android.R.id.content)
 }
