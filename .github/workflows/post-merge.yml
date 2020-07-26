@@ -37,7 +37,13 @@ jobs:
                 run: ./gradlew assembleRelease
 
             -   name: Upload APK
-                uses: actions/upload-artifact@v1
+                uses: actions/upload-artifact@v2
                 with:
                     name: random-user-sample-android
-                    path: app/build/outputs/apk/release/app-release.apk
+                    path: "app/build/outputs/apk/release/app-release.apk"
+
+            -   name: Upload Lint report
+                uses: actions/upload-artifact@v2
+                with:
+                    name: lint-report
+                    path: "**/build/reports/*.html"
