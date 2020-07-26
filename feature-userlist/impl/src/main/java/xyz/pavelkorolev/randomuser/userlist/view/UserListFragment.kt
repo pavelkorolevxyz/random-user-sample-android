@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.BaseFragment
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
+import xyz.pavelkorolev.randomuser.core.model.Text
 import xyz.pavelkorolev.randomuser.list.extensions.setOnDeleteListener
 import xyz.pavelkorolev.randomuser.userlist.R
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
@@ -20,6 +21,7 @@ import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureComponent
 import xyz.pavelkorolev.randomuser.userlist.di.UserListFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 import xyz.pavelkorolev.randomuser.userlist.view.models.UserListItemModel
+import xyz.pavelkorolev.randomuser.utils.setup
 
 class UserListFragment : BaseFragment() {
 
@@ -55,6 +57,11 @@ class UserListFragment : BaseFragment() {
 
         val context = context ?: return
         val binding = binding ?: return
+
+        binding.appBar.toolbar.setup(
+            title = Text.Resource(R.string.user_list_title)
+        )
+
         val addButton = binding.addButton
         addButton.setOnClickListener {
             viewModel.onAddButtonClick()
