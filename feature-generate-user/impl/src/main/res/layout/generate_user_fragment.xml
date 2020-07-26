@@ -6,19 +6,9 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary"
-            app:title="@string/generate_user_title" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar_layout" />
 
     <RelativeLayout
         android:layout_width="match_parent"

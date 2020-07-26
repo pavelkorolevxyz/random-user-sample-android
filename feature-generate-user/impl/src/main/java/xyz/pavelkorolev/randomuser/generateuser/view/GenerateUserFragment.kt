@@ -12,12 +12,16 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.BaseFragment
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
+import xyz.pavelkorolev.randomuser.core.model.NavigationIcon
+import xyz.pavelkorolev.randomuser.core.model.Text
 import xyz.pavelkorolev.randomuser.generateuser.R
 import xyz.pavelkorolev.randomuser.generateuser.databinding.GenerateUserFragmentBinding
 import xyz.pavelkorolev.randomuser.generateuser.di.DaggerGenerateUserFeatureComponent
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureComponent
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
 import xyz.pavelkorolev.randomuser.generateuser.presentation.GenerateUserViewModel
+import xyz.pavelkorolev.randomuser.utils.activityOnBackPressed
+import xyz.pavelkorolev.randomuser.utils.setup
 
 class GenerateUserFragment : BaseFragment() {
 
@@ -48,6 +52,12 @@ class GenerateUserFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = binding ?: return
+
+        binding.appBar.toolbar.setup(
+            title = Text.Resource(R.string.generate_user_title),
+            navigationIcon = NavigationIcon.Back(activityOnBackPressed)
+        )
+
         binding.generateButton.setOnClickListener {
             viewModel.onGenerateButtonClick()
         }
