@@ -28,7 +28,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":model"))
     implementation(project(":database:api"))
 
     implementation(Dependencies.coroutinesAndroid)

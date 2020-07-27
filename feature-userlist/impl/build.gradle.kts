@@ -38,7 +38,6 @@ dependencies {
     implementation(project(":feature-userlist:api"))
     implementation(project(":image"))
     implementation(project(":list"))
-    implementation(project(":model"))
     implementation(project(":network:api"))
     implementation(project(":ui"))
 

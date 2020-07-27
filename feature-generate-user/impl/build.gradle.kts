@@ -48,4 +48,10 @@ dependencies {
     implementation(Dependencies.androidxRecyclerView)
 
     implementation(Dependencies.cicerone)
+
+    // Test dependencies
+    testImplementation(Dependencies.spekJvm)
+    testRuntimeOnly(Dependencies.spekRunnerJunit5)
+    testImplementation(Dependencies.assertJ)
+    testImplementation(Dependencies.coroutinesTest)
 }

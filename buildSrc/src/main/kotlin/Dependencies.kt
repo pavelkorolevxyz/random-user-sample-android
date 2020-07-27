@@ -13,6 +13,7 @@ object Dependencies {
         const val dagger = "2.28.1"
         const val androidxLifecycle = "2.3.0-alpha05"
         const val sqlDelight = "1.4.0"
+        const val spek = "2.0.12"
     }
 
     // Gradle Plugins
@@ -58,4 +59,11 @@ object Dependencies {
     const val cicerone = "ru.terrakok.cicerone:cicerone:5.1.1"
     const val epoxy = "com.airbnb.android:epoxy:4.0.0-beta6"
     const val coil = "io.coil-kt:coil:0.11.0"
+
+    const val spekJvm = "org.spekframework.spek2:spek-dsl-jvm:${Versions.spek}"
+    const val spekRunnerJunit5 = "org.spekframework.spek2:spek-runner-junit5:${Versions.spek}"
+
+    const val assertJ = "org.assertj:assertj-core:3.15.0"
+
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 }
