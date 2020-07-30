@@ -20,6 +20,7 @@ object Dependencies {
     const val androidPlugin = "com.android.tools.build:gradle:4.0.1"
     const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
     const val sqlDelightPlugin = "com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelight}"
+    const val androidJunit5 = "de.mannodermaus.gradle.plugins:android-junit5:1.6.2.0"
     val kotlinxSerializationPlugin = GradlePlugin(
         "org.jetbrains.kotlin.plugin.serialization",
         Versions.kotlin

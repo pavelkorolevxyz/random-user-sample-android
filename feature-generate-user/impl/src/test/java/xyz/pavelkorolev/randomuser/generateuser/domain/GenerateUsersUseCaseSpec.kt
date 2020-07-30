@@ -45,7 +45,6 @@ internal class GenerateUsersUseCaseSpec : Spek({
             userApiRepository.getUsersResult = Result.success(emptyList())
             testCoroutineDispatcher.runBlockingTest {
                 val result = useCase(1)
-                println(result)
                 assertThat(result.isSuccess).isTrue()
             }
         }
