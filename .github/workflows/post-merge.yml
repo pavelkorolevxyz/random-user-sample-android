@@ -33,6 +33,9 @@ jobs:
             -   name: ktlint
                 run: ./gradlew ktlintReleaseCheck
 
+            -   name: Unit testing
+                run: ./gradlew testReleaseUnitTest
+
             -   name: Assemble
                 run: ./gradlew assembleRelease
 

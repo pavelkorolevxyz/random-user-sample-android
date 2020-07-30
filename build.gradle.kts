@@ -9,6 +9,7 @@ buildscript {
         classpath(Dependencies.androidPlugin)
         classpath(Dependencies.kotlinPlugin)
         classpath(Dependencies.sqlDelightPlugin)
+        classpath(Dependencies.androidJunit5)
     }
 }
 
