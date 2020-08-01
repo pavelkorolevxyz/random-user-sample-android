@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import xyz.pavelkorolev.randomuser.about.AboutFeatureApi
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.userlist.domain.DeleteUserUseCase
@@ -24,7 +25,8 @@ class UserListViewModel @Inject constructor(
     private val loadUsersUseCase: LoadUsersUseCase,
     private val loadUsersOnUpdateUseCase: LoadUsersOnUpdateUseCase,
     private val deleteUserUseCase: DeleteUserUseCase,
-    private val generateUserFeatureApi: GenerateUserFeatureApi
+    private val generateUserFeatureApi: GenerateUserFeatureApi,
+    private val aboutFeatureApi: AboutFeatureApi
 ) : ViewModel() {
 
     private val _usersStateFlow: MutableStateFlow<List<User>?> = MutableStateFlow(null)
@@ -85,5 +87,9 @@ class UserListViewModel @Inject constructor(
         viewModelScope.launch {
             deleteUserUseCase(id)
         }
+    }
+
+    fun onAboutClick() {
+        aboutFeatureApi.navigateToAbout()
     }
 }

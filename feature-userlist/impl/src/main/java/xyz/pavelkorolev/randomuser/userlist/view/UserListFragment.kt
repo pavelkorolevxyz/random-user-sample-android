@@ -61,6 +61,14 @@ class UserListFragment : BaseFragment() {
         binding.appBar.toolbar.setup(
             title = Text.Resource(R.string.user_list_title)
         )
+        binding.appBar.toolbar.run {
+            setup(title = Text.Resource(R.string.user_list_title))
+            inflateMenu(R.menu.userlist_menu)
+            menu.findItem(R.id.action_about).setOnMenuItemClickListener {
+                viewModel.onAboutClick()
+                true
+            }
+        }
 
         val addButton = binding.addButton
         addButton.setOnClickListener {

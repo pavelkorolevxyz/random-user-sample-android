@@ -16,4 +16,12 @@
         <item name="android:windowBackground">@color/colorBackground</item>
     </style>
 
+    <style name="Widget.RandomUser.Toolbar.Top" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:theme">@style/ThemeOverlay.RandomUser.Toolbar.Top</item>
+        <item name="titleTextColor">?colorOnPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="ThemeOverlay.RandomUser.Toolbar.Top" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary" />
+
 </resources>

@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("de.mannodermaus.android-junit5")
 }
 
 android {
@@ -35,10 +36,6 @@ dependencies {
     implementation(project(":database:api"))
     implementation(project(":di:viewmodel"))
     implementation(project(":feature-about:api"))
-    implementation(project(":feature-generate-user:api"))
-    implementation(project(":feature-userlist:api"))
-    implementation(project(":image"))
-    implementation(project(":list"))
     implementation(project(":network:api"))
     implementation(project(":ui"))
 
@@ -50,7 +47,6 @@ dependencies {
     implementation(Dependencies.androidxViewModel)
     implementation(Dependencies.androidxLifecycleRuntime)
     implementation(Dependencies.androidxRecyclerView)
-    implementation(Dependencies.androidxSwipeRefreshLayout)
 
     implementation(Dependencies.cicerone)
 }
