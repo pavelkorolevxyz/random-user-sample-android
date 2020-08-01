@@ -2,6 +2,7 @@ package xyz.pavelkorolev.randomuser.userlist.di
 
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.ImageLoader
+import xyz.pavelkorolev.randomuser.about.AboutFeatureApi
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
@@ -14,6 +15,8 @@ interface UserListFeatureDependencies {
     }
 
     fun generateUserFeature(): GenerateUserFeatureApi
+
+    fun aboutFeature(): AboutFeatureApi
 
     fun router(): Router
 

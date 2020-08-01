@@ -4,6 +4,8 @@ include(
     ":database:api",
     ":database:impl",
     ":di:viewmodel",
+    ":feature-about:api",
+    ":feature-about:impl",
     ":feature-generate-user:api",
     ":feature-generate-user:impl",
     ":feature-splash:api",

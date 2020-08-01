@@ -32,25 +32,12 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":database:api"))
-    implementation(project(":di:viewmodel"))
-    implementation(project(":feature-about:api"))
-    implementation(project(":feature-generate-user:api"))
-    implementation(project(":feature-userlist:api"))
-    implementation(project(":image"))
-    implementation(project(":list"))
-    implementation(project(":network:api"))
     implementation(project(":ui"))
-
-    implementation(Dependencies.coroutinesAndroid)
 
     implementation(Dependencies.dagger)
     kapt(Dependencies.daggerCompiler)
 
     implementation(Dependencies.androidxViewModel)
-    implementation(Dependencies.androidxLifecycleRuntime)
-    implementation(Dependencies.androidxRecyclerView)
-    implementation(Dependencies.androidxSwipeRefreshLayout)
 
     implementation(Dependencies.cicerone)
 }

@@ -5,6 +5,8 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
+import xyz.pavelkorolev.randomuser.about.di.AboutFeatureDependencies
+import xyz.pavelkorolev.randomuser.about.di.AboutFeatureModule
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.di.ImageLoaderModule
@@ -43,7 +45,8 @@ interface MainActivityDependencies {
         ViewModelFactoryModule::class,
         SplashFeatureModule::class,
         UserListFeatureModule::class,
-        GenerateUserFeatureModule::class
+        GenerateUserFeatureModule::class,
+        AboutFeatureModule::class
     ],
     dependencies = [
         MainActivityDependencies::class
@@ -52,7 +55,8 @@ interface MainActivityDependencies {
 interface MainActivityComponent :
     SplashFeatureDependencies,
     UserListFeatureDependencies,
-    GenerateUserFeatureDependencies {
+    GenerateUserFeatureDependencies,
+    AboutFeatureDependencies {
 
     fun navigatorHolder(): NavigatorHolder
 
