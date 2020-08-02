@@ -1,5 +1,6 @@
 package xyz.pavelkorolev.randomuser.main
 
+import android.app.Application
 import androidx.fragment.app.FragmentActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -28,6 +29,8 @@ interface MainActivityDependencies {
     interface DepProvider {
         fun provideMainActivityDependencies(): MainActivityDependencies
     }
+
+    fun app(): Application
 
     fun userApiRepository(): UserApiRepository
 

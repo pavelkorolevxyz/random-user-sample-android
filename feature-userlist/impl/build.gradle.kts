@@ -49,8 +49,6 @@ dependencies {
 
     implementation(Dependencies.androidxViewModel)
     implementation(Dependencies.androidxLifecycleRuntime)
-    implementation(Dependencies.androidxRecyclerView)
-    implementation(Dependencies.androidxSwipeRefreshLayout)
 
     implementation(Dependencies.cicerone)
 }

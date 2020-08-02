@@ -5,6 +5,7 @@ import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.BaseActivity
+import xyz.pavelkorolev.randomuser.about.di.AboutFeatureDependencies
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.generateuser.di.GenerateUserFeatureDependencies
 import xyz.pavelkorolev.randomuser.splash.SplashFeatureApi
@@ -15,7 +16,8 @@ class MainActivity :
     BaseActivity(),
     SplashFeatureDependencies.DepProvider,
     UserListFeatureDependencies.DepProvider,
-    GenerateUserFeatureDependencies.DepProvider {
+    GenerateUserFeatureDependencies.DepProvider,
+    AboutFeatureDependencies.DepProvider {
 
     private val component: MainActivityComponent by lazyUi {
         val provider = application as MainActivityDependencies.DepProvider
@@ -59,11 +61,13 @@ class MainActivity :
         super.onPause()
     }
 
-    override fun provideSplashFragmentDependencies(): SplashFeatureDependencies = component
+    override fun provideSplashFeatureDependencies(): SplashFeatureDependencies = component
 
-    override fun provideUserListFragmentDependencies(): UserListFeatureDependencies = component
+    override fun provideUserListFeatureDependencies(): UserListFeatureDependencies = component
 
-    override fun provideGenerateUserFragmentDependencies(): GenerateUserFeatureDependencies = component
+    override fun provideGenerateUserFeatureDependencies(): GenerateUserFeatureDependencies = component
+
+    override fun provideAboutFeatureDependencies(): AboutFeatureDependencies = component
 
     override fun onBackPressed() {
         router.exit()

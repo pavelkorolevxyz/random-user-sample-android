@@ -6,7 +6,7 @@ import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 interface SplashFeatureDependencies {
 
     interface DepProvider {
-        fun provideSplashFragmentDependencies(): SplashFeatureDependencies
+        fun provideSplashFeatureDependencies(): SplashFeatureDependencies
     }
 
     fun router(): Router
