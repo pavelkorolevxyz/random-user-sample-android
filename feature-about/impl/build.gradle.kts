@@ -36,6 +36,7 @@ dependencies {
     implementation(project(":database:api"))
     implementation(project(":di:viewmodel"))
     implementation(project(":feature-about:api"))
+    implementation(project(":list"))
     implementation(project(":network:api"))
     implementation(project(":ui"))
 

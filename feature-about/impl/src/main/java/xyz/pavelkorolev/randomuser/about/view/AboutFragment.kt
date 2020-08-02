@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.BaseFragment
 import xyz.pavelkorolev.randomuser.about.R
 import xyz.pavelkorolev.randomuser.about.databinding.AboutFragmentBinding
@@ -15,6 +18,7 @@ import xyz.pavelkorolev.randomuser.about.presentation.AboutViewModel
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.core.model.NavigationIcon
 import xyz.pavelkorolev.randomuser.core.model.Text
+import xyz.pavelkorolev.randomuser.list.extensions.setup
 import xyz.pavelkorolev.randomuser.utils.activityOnBackPressed
 import xyz.pavelkorolev.randomuser.utils.setup
 
@@ -25,12 +29,16 @@ class AboutFragment : BaseFragment() {
         DaggerAboutFeatureComponent.factory()
             .create(
                 this,
-                provider.provideAboutFragmentDependencies()
+                provider.provideAboutFeatureDependencies()
             )
     }
 
     private val viewModel: AboutViewModel by lazyUi {
         component.viewModel()
+    }
+
+    private val controller: AboutController by lazyUi {
+        AboutController(resources)
     }
 
     private var binding: AboutFragmentBinding? = null
@@ -52,6 +60,29 @@ class AboutFragment : BaseFragment() {
             title = Text.Resource(R.string.about_title),
             navigationIcon = NavigationIcon.Back(activityOnBackPressed)
         )
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.onRefresh()
+        }
+
+        binding.recyclerView.setup(controller.adapter)
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.loadingStateFlow
+                .onEach { isLoading ->
+                    binding.swipeRefreshLayout.isRefreshing = isLoading
+                }
+                .collect()
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.versionStateFlow
+                .onEach { version ->
+                    controller.version = version
+                    controller.requestModelBuild()
+                }
+                .collect()
+        }
     }
 
     override fun onDestroyView() {

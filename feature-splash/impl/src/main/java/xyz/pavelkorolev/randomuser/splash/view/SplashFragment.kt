@@ -20,7 +20,7 @@ class SplashFragment : BaseFragment(R.layout.splash_fragment) {
         DaggerSplashFeatureComponent.factory()
             .create(
                 this,
-                provider.provideSplashFragmentDependencies()
+                provider.provideSplashFeatureDependencies()
             )
     }
 

@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import xyz.pavelkorolev.randomuser.BaseFragment
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi
 import xyz.pavelkorolev.randomuser.core.model.Text
 import xyz.pavelkorolev.randomuser.list.extensions.setOnDeleteListener
+import xyz.pavelkorolev.randomuser.list.extensions.setup
 import xyz.pavelkorolev.randomuser.userlist.R
 import xyz.pavelkorolev.randomuser.userlist.databinding.UserListFragmentBinding
 import xyz.pavelkorolev.randomuser.userlist.di.DaggerUserListFeatureComponent
@@ -30,7 +30,7 @@ class UserListFragment : BaseFragment() {
         DaggerUserListFeatureComponent.factory()
             .create(
                 this,
-                provider.provideUserListFragmentDependencies()
+                provider.provideUserListFeatureDependencies()
             )
     }
 
@@ -79,12 +79,7 @@ class UserListFragment : BaseFragment() {
             viewModel.onRefresh()
         }
 
-        binding.recyclerView.adapter = controller.adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
+        binding.recyclerView.setup(controller.adapter)
         binding.recyclerView.setOnDeleteListener(UserListItemModel::class.java) {
             viewModel.onSwipeCompleted(it.id)
         }

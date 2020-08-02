@@ -30,4 +30,6 @@ dependencies {
     implementation(project(":ui"))
 
     api(Dependencies.epoxy)
+    api(Dependencies.androidxRecyclerView)
+    api(Dependencies.androidxSwipeRefreshLayout)
 }

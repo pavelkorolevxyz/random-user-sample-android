@@ -8,7 +8,7 @@ import xyz.pavelkorolev.randomuser.network.UserApiRepository
 interface GenerateUserFeatureDependencies {
 
     interface DepProvider {
-        fun provideGenerateUserFragmentDependencies(): GenerateUserFeatureDependencies
+        fun provideGenerateUserFeatureDependencies(): GenerateUserFeatureDependencies
     }
 
     fun router(): Router

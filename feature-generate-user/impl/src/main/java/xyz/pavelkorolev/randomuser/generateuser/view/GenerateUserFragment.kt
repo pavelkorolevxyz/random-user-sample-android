@@ -30,7 +30,7 @@ class GenerateUserFragment : BaseFragment() {
         DaggerGenerateUserFeatureComponent.factory()
             .create(
                 this,
-                provider.provideGenerateUserFragmentDependencies()
+                provider.provideGenerateUserFeatureDependencies()
             )
     }
 

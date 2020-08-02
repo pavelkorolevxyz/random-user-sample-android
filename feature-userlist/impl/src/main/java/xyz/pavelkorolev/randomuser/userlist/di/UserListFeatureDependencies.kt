@@ -11,7 +11,7 @@ import xyz.pavelkorolev.randomuser.network.UserApiRepository
 interface UserListFeatureDependencies {
 
     interface DepProvider {
-        fun provideUserListFragmentDependencies(): UserListFeatureDependencies
+        fun provideUserListFeatureDependencies(): UserListFeatureDependencies
     }
 
     fun generateUserFeature(): GenerateUserFeatureApi
