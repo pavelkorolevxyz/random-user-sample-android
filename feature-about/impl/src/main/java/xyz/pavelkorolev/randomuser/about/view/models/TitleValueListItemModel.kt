@@ -37,9 +37,9 @@ data class TitleValueListItemModel(
         holder.titleTextView.text = title
         holder.valueTextView.text = value
 
+        holder.rootView.isEnabled = onClickListener != null
         holder.rootView.setOnClickListener {
             onClickListener?.invoke()
         }
     }
 }
-
