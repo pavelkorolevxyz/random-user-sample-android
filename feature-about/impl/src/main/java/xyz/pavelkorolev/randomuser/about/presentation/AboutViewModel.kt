@@ -9,7 +9,6 @@ import xyz.pavelkorolev.randomuser.about.domain.LoadVersionUseCase
 import xyz.pavelkorolev.randomuser.about.navigation.TwitterScreen
 import javax.inject.Inject
 
-
 @OptIn(ExperimentalCoroutinesApi::class)
 class AboutViewModel @Inject constructor(
     private val loadVersionUseCase: LoadVersionUseCase,
