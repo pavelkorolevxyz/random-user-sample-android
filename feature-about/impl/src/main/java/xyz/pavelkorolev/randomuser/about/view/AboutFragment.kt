@@ -38,7 +38,10 @@ class AboutFragment : BaseFragment() {
     }
 
     private val controller: AboutController by lazyUi {
-        AboutController(resources)
+        AboutController(
+            resources,
+            onTwitterClick = { viewModel.onTwitterClick() }
+        )
     }
 
     private var binding: AboutFragmentBinding? = null
