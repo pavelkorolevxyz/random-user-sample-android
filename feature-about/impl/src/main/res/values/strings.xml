@@ -5,5 +5,7 @@
     <string name="about_version">Version</string>
     <string name="about_twitter">Follow me on Twitter</string>
     <string name="about_twitter_value">\@pavelkorolevxyz</string>
+    <string name="about_libraries">Libraries</string>
+    <string name="action_close">Close</string>
 
 </resources>

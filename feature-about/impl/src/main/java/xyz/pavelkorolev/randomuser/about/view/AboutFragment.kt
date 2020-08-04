@@ -1,5 +1,6 @@
 package xyz.pavelkorolev.randomuser.about.view
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,7 @@ class AboutFragment : BaseFragment() {
     private val controller: AboutController by lazyUi {
         AboutController(
             resources,
+            onLibrariesClick = { viewModel.onLibrariesClick() },
             onTwitterClick = { viewModel.onTwitterClick() }
         )
     }
@@ -86,11 +88,29 @@ class AboutFragment : BaseFragment() {
                 }
                 .collect()
         }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.librariesBroadcastChannel
+                .onEach { message ->
+                    showLibrariesDialog(message)
+                }
+                .collect()
+        }
     }
 
     override fun onDestroyView() {
         binding = null
         super.onDestroyView()
+    }
+
+    private fun showLibrariesDialog(message: String) {
+        val context = context ?: return
+        AlertDialog.Builder(context)
+            .setTitle(R.string.about_libraries)
+            .setMessage(message)
+            .setPositiveButton(R.string.action_close, null)
+            .setCancelable(false)
+            .show()
     }
 
     companion object {
