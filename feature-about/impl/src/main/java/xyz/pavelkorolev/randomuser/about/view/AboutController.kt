@@ -7,12 +7,20 @@ import xyz.pavelkorolev.randomuser.about.view.models.TitleValueListItemModel
 
 class AboutController(
     private val resources: Resources,
-    private val onTwitterClick: () -> Unit
+    private val onTwitterClick: () -> Unit,
+    private val onLibrariesClick: () -> Unit
 ) : EpoxyController() {
 
     var version: String? = null
 
     override fun buildModels() {
+        TitleValueListItemModel(
+            "libraries",
+            resources.getString(R.string.about_libraries),
+            "",
+            onClickListener = onLibrariesClick
+        ).addTo(this)
+
         TitleValueListItemModel(
             "twitter",
             resources.getString(R.string.about_twitter),
