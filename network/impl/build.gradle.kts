@@ -16,6 +16,12 @@ android {
         versionName = AppConfig.versionName
     }
 
+    buildTypes {
+        getByName("release") {
+            consumerProguardFiles("consumer-rules.pro")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
