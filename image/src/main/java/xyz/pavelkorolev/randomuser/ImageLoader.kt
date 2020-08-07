@@ -5,8 +5,20 @@ import coil.api.load
 import coil.request.LoadRequestBuilder
 import coil.transform.CircleCropTransformation
 
+/**
+ * Loads images.
+ * External [ImageLoader] users can be library agnostic.
+ */
 class ImageLoader {
 
+    /**
+     * Loads image
+     *
+     * @param imageView view to load image in
+     * @param image image to load
+     * @param placeholderImage image to show when loading or if [image] is not available
+     * @param crop crop mode for image
+     */
     fun load(
         imageView: ImageView,
         image: Image,
