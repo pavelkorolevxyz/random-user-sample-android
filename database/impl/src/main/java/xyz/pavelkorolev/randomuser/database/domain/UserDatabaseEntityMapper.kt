@@ -4,6 +4,9 @@ import xyz.pavelkorolev.randomuser.core.mapper.Mapper
 import xyz.pavelkorolev.randomuser.database.model.UserDatabaseEntity
 import xyz.pavelkorolev.randomuser.model.User
 
+/**
+ * Mapper between database and domain user entities
+ */
 class UserDatabaseEntityMapper : Mapper<UserDatabaseEntity, User> {
 
     override suspend fun map(data: UserDatabaseEntity): User = data.let {

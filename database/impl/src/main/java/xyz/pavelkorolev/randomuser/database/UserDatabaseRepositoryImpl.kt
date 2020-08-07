@@ -5,6 +5,9 @@ import kotlinx.coroutines.withContext
 import xyz.pavelkorolev.randomuser.database.domain.UserDatabaseEntityMapper
 import xyz.pavelkorolev.randomuser.model.User
 
+/**
+ * SQLDelight implementation of [UserDatabaseRepository]
+ */
 class UserDatabaseRepositoryImpl(
     databaseService: DatabaseService,
     private val userMapper: UserDatabaseEntityMapper
