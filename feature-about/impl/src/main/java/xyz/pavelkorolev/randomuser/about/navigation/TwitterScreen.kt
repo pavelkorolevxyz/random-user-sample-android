@@ -5,6 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 
+/**
+ * Twitter link navigation description
+ */
 class TwitterScreen : SupportAppScreen() {
 
     override fun getActivityIntent(

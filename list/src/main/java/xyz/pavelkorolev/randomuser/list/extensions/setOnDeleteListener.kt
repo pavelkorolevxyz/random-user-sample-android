@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.EpoxyTouchHelper
 
+/**
+ * Extension for setting up swipe to delete on list items
+ */
 inline fun <reified T : EpoxyModel<*>> RecyclerView.setOnDeleteListener(
     listItemModelClass: Class<T>,
     crossinline action: (T) -> Unit

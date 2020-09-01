@@ -14,6 +14,9 @@ import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.generateuser.domain.GenerateUsersUseCase
 import javax.inject.Inject
 
+/**
+ * Generate User screen presentation logic
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class GenerateUserViewModel @Inject constructor(
     private val generateUsersUseCase: GenerateUsersUseCase,
@@ -31,10 +34,16 @@ class GenerateUserViewModel @Inject constructor(
 
     private var usersCount = 1 // TODO synchronize state with UI
 
+    /**
+     * Called on user count change in UI
+     */
     fun onUserCountChanged(count: Int) {
         this.usersCount = count
     }
 
+    /**
+     * Called on generate button click in UI
+     */
     fun onGenerateButtonClick() {
         viewModelScope.launch {
             _loadingStateFlow.value = true

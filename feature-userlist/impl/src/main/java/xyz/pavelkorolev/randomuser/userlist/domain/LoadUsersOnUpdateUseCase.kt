@@ -7,6 +7,9 @@ import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.model.User
 import javax.inject.Inject
 
+/**
+ * Loads all users from storage on external updates
+ */
 class LoadUsersOnUpdateUseCase @Inject constructor(
     private val userDatabaseUpdater: UserDatabaseUpdater,
     private val userDatabaseRepository: UserDatabaseRepository

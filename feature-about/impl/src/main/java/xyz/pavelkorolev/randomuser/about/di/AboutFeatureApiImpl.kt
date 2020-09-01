@@ -5,6 +5,9 @@ import xyz.pavelkorolev.randomuser.about.AboutFeatureApi
 import xyz.pavelkorolev.randomuser.about.navigation.AboutScreen
 import javax.inject.Inject
 
+/**
+ * Implementation of About feature external API
+ */
 class AboutFeatureApiImpl @Inject constructor(
     private val router: Router
 ) : AboutFeatureApi {

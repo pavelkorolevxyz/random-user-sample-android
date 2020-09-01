@@ -3,6 +3,9 @@ package xyz.pavelkorolev.randomuser.about.domain
 import xyz.pavelkorolev.randomuser.about.domain.model.Library
 import javax.inject.Inject
 
+/**
+ * Returns message containing application libraries with links
+ */
 class LoadLibrariesUseCase @Inject constructor() {
 
     operator fun invoke(): Result<String> = runCatching {

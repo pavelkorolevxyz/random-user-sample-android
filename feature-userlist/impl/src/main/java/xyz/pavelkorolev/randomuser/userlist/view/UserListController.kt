@@ -11,6 +11,9 @@ import xyz.pavelkorolev.randomuser.userlist.R
 import xyz.pavelkorolev.randomuser.userlist.view.models.UserListItemModel
 import javax.inject.Inject
 
+/**
+ * User List screen list controller
+ */
 class UserListController @Inject constructor(
     private val imageLoader: ImageLoader
 ) : EpoxyController() {

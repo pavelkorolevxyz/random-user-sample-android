@@ -6,6 +6,9 @@ import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import xyz.pavelkorolev.randomuser.about.R
 
+/**
+ * List item representing title and value texts
+ */
 data class TitleValueListItemModel(
     private val id: String,
     private val title: String,

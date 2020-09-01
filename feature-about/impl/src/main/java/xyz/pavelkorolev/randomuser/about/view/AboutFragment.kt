@@ -23,6 +23,9 @@ import xyz.pavelkorolev.randomuser.list.extensions.setup
 import xyz.pavelkorolev.randomuser.utils.activityOnBackPressed
 import xyz.pavelkorolev.randomuser.utils.setup
 
+/**
+ * About screen UI
+ */
 class AboutFragment : BaseFragment() {
 
     private val component: AboutFeatureComponent by lazyUi {
