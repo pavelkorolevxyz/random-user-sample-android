@@ -4,6 +4,9 @@ import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.model.User
 import javax.inject.Inject
 
+/**
+ * Loads all users from storage
+ */
 class LoadUsersUseCase @Inject constructor(
     private val userDatabaseRepository: UserDatabaseRepository
 ) {

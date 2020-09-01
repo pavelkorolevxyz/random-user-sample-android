@@ -13,8 +13,15 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
 import xyz.pavelkorolev.randomuser.logging.LoggingService
 
+/**
+ * Factory used to create Http clients with given parameters
+ */
 object HttpClientFactory {
 
+    /**
+     * Creates [HttpClient] with logging using [loggingService].
+     * [isLoggingEnabled] can be set to enable logging.
+     */
     fun create(
         loggingService: LoggingService,
         isLoggingEnabled: Boolean = false
@@ -23,6 +30,9 @@ object HttpClientFactory {
         installJson()
     }
 
+    /**
+     * Adds logging to [HttpClient] configuration
+     */
     private fun HttpClientConfig<*>.installLogging(loggingService: LoggingService) {
         install(Logging) {
             level = LogLevel.BODY
@@ -34,6 +44,9 @@ object HttpClientFactory {
         }
     }
 
+    /**
+     * Adds Json serializer to [HttpClient] configuration
+     */
     private fun HttpClientConfig<*>.installJson() {
         install(JsonFeature) {
             serializer = KotlinxSerializer(

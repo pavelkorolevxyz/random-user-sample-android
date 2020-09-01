@@ -5,6 +5,9 @@ import android.util.TypedValue
 import androidx.annotation.AttrRes
 import androidx.annotation.ColorInt
 
+/**
+ * Returns color by given attribute
+ */
 @ColorInt
 fun Context.getAttributeColor(
     @AttrRes attribute: Int

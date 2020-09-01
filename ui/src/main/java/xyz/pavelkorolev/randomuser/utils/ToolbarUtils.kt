@@ -12,6 +12,9 @@ import xyz.pavelkorolev.randomuser.extensions.getAttributeColor
 import xyz.pavelkorolev.randomuser.extensions.tinted
 import xyz.pavelkorolev.randomuser.ui.R
 
+/**
+ * Sets up toolbar text and icon
+ */
 fun Toolbar.setup(
     title: Text = Text.Resource(R.string.app_name),
     navigationIcon: NavigationIcon = NavigationIcon.None
@@ -26,6 +29,9 @@ fun Toolbar.setup(
     }
 }
 
+/**
+ * Returns string title from plain string or resource
+ */
 private fun getTitle(
     context: Context,
     text: Text
@@ -34,6 +40,9 @@ private fun getTitle(
     is Text.Resource -> context.getString(text.resId)
 }
 
+/**
+ * Returns navigation icon drawable based on icon description
+ */
 private fun getNavigationIconDrawable(
     context: Context,
     navigationIcon: NavigationIcon
@@ -46,6 +55,9 @@ private fun getNavigationIconDrawable(
     drawable?.tinted(colorOnPrimary)
 }
 
+/**
+ * Returns navigation click action function based on icon description
+ */
 private fun getNavigationClickAction(
     navigationIcon: NavigationIcon
 ): NavigationAction? = when (navigationIcon) {
@@ -53,6 +65,9 @@ private fun getNavigationClickAction(
     is NavigationIcon.Back -> navigationIcon.action
 }
 
+/**
+ * Fragment extension which returns action which calls Activity.onBackPressed
+ */
 val Fragment.activityOnBackPressed: NavigationAction
     get() = {
         activity?.onBackPressed()

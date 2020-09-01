@@ -5,6 +5,9 @@ import com.airbnb.epoxy.EpoxyController
 import xyz.pavelkorolev.randomuser.about.R
 import xyz.pavelkorolev.randomuser.about.view.models.TitleValueListItemModel
 
+/**
+ * About screen list controller
+ */
 class AboutController(
     private val resources: Resources,
     private val onTwitterClick: () -> Unit,

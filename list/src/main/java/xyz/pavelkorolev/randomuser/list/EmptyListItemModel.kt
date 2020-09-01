@@ -6,6 +6,9 @@ import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelWithHolder
 import xyz.pavelkorolev.randomuser.core.model.Text
 
+/**
+ * Empty list item
+ */
 class EmptyListItemModel(
     private val text: Text = Text.Resource(R.string.empty_message)
 ) : EpoxyModelWithHolder<EmptyListItemModel.ViewHolder>() {

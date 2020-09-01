@@ -10,6 +10,9 @@ import xyz.pavelkorolev.randomuser.ImageCrop
 import xyz.pavelkorolev.randomuser.ImageLoader
 import xyz.pavelkorolev.randomuser.userlist.R
 
+/**
+ * User list item description
+ */
 class UserListItemModel(
     val id: Long,
     private val name: String,

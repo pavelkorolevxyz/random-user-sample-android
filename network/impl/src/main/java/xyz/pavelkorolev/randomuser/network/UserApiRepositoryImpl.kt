@@ -7,6 +7,9 @@ import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.network.domain.UserNetworkEntityMapper
 import xyz.pavelkorolev.randomuser.network.models.UserResponseNetworkEntity
 
+/**
+ * RandomUser.me implementation of API repository
+ */
 class UserApiRepositoryImpl(
     private val client: HttpClient,
     private val userMapper: UserNetworkEntityMapper

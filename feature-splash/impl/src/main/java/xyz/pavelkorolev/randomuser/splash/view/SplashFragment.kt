@@ -13,6 +13,9 @@ import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureComponent
 import xyz.pavelkorolev.randomuser.splash.di.SplashFeatureDependencies
 import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 
+/**
+ * Splash Screen UI
+ */
 class SplashFragment : BaseFragment(R.layout.splash_fragment) {
 
     private val component: SplashFeatureComponent by lazyUi {

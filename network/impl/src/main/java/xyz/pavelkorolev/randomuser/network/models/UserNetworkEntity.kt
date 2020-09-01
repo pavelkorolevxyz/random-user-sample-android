@@ -3,6 +3,9 @@ package xyz.pavelkorolev.randomuser.network.models
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * API response user description
+ */
 @Serializable
 data class UserNetworkEntity(
 

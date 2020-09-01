@@ -23,6 +23,9 @@ import xyz.pavelkorolev.randomuser.generateuser.presentation.GenerateUserViewMod
 import xyz.pavelkorolev.randomuser.utils.activityOnBackPressed
 import xyz.pavelkorolev.randomuser.utils.setup
 
+/**
+ * Generate User screen UI
+ */
 class GenerateUserFragment : BaseFragment() {
 
     private val component: GenerateUserFeatureComponent by lazyUi {

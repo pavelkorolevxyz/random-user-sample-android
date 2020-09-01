@@ -20,6 +20,9 @@ import xyz.pavelkorolev.randomuser.userlist.domain.LoadUsersOnUpdateUseCase
 import xyz.pavelkorolev.randomuser.userlist.domain.LoadUsersUseCase
 import javax.inject.Inject
 
+/**
+ * User List presentation logic
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class UserListViewModel @Inject constructor(
     private val loadUsersUseCase: LoadUsersUseCase,

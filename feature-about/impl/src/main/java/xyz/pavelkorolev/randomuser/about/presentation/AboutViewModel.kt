@@ -16,6 +16,9 @@ import xyz.pavelkorolev.randomuser.about.domain.LoadVersionUseCase
 import xyz.pavelkorolev.randomuser.about.navigation.TwitterScreen
 import javax.inject.Inject
 
+/**
+ * About screen presentation logic
+ */
 @OptIn(ExperimentalCoroutinesApi::class)
 class AboutViewModel @Inject constructor(
     private val loadVersionUseCase: LoadVersionUseCase,
@@ -52,6 +55,9 @@ class AboutViewModel @Inject constructor(
             }
     }
 
+    /**
+     * Called on libraries item click
+     */
     fun onLibrariesClick() {
         viewModelScope.launch {
             loadLibrariesUseCase()
@@ -61,10 +67,16 @@ class AboutViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Called on pull-to-refresh
+     */
     fun onRefresh() {
         loadData()
     }
 
+    /**
+     * Called on twitter link click
+     */
     fun onTwitterClick() {
         router.navigateTo(TwitterScreen())
     }

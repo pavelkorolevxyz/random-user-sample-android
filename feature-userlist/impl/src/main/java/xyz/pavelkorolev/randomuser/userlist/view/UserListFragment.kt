@@ -23,6 +23,9 @@ import xyz.pavelkorolev.randomuser.userlist.presentation.UserListViewModel
 import xyz.pavelkorolev.randomuser.userlist.view.models.UserListItemModel
 import xyz.pavelkorolev.randomuser.utils.setup
 
+/**
+ * User List screen UI
+ */
 class UserListFragment : BaseFragment() {
 
     private val component: UserListFeatureComponent by lazyUi {

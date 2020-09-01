@@ -5,6 +5,9 @@ import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import javax.inject.Inject
 
+/**
+ * Generates given number of users and saves them to storage
+ */
 class GenerateUsersUseCase @Inject constructor(
     private val userApiRepository: UserApiRepository,
     private val userDatabaseRepository: UserDatabaseRepository,
