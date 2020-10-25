@@ -10,7 +10,6 @@ import io.ktor.client.features.logging.LogLevel
 import io.ktor.client.features.logging.Logger
 import io.ktor.client.features.logging.Logging
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import xyz.pavelkorolev.randomuser.logging.LoggingService
 
 /**
@@ -50,11 +49,9 @@ object HttpClientFactory {
     private fun HttpClientConfig<*>.installJson() {
         install(JsonFeature) {
             serializer = KotlinxSerializer(
-                Json(
-                    JsonConfiguration.Stable.copy(
-                        ignoreUnknownKeys = true
-                    )
-                )
+                Json {
+                    ignoreUnknownKeys = true
+                }
             )
         }
     }

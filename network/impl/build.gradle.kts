@@ -41,5 +41,5 @@ dependencies {
     implementation(Dependencies.ktorOkHttp)
     implementation(Dependencies.ktorLogging)
     implementation(Dependencies.ktorSerialization)
-    implementation(Dependencies.kotlinxSerializationRuntime)
+    implementation(Dependencies.kotlinxSerializationJson)
 }

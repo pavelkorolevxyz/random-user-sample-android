@@ -32,7 +32,7 @@ subprojects {
     plugins.apply(Dependencies.ktlintPlugin.id)
 
     ktlint {
-        version.set("0.37.2")
+        version.set("0.39.0")
         android.set(true)
         reporters {
             reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.JSON)

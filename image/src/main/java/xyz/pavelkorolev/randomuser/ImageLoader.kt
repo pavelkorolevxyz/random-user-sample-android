@@ -1,8 +1,8 @@
 package xyz.pavelkorolev.randomuser
 
 import android.widget.ImageView
-import coil.api.load
-import coil.request.LoadRequestBuilder
+import coil.load
+import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 
 /**
@@ -25,7 +25,7 @@ class ImageLoader {
         placeholderImage: Image.Resource? = null,
         crop: ImageCrop = ImageCrop.None
     ) {
-        val builder: LoadRequestBuilder.() -> Unit = {
+        val builder: ImageRequest.Builder.() -> Unit = {
             placeholderImage?.let { placeholder(it.resId) }
             if (crop is ImageCrop.Circle) {
                 transformations(CircleCropTransformation())
