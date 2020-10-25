@@ -16,5 +16,5 @@ sealed class Text {
     /**
      * Text implemented as given [String]
      */
-    data class Message(val message: String) : Text()
+    data class Plain(val text: String) : Text()
 }

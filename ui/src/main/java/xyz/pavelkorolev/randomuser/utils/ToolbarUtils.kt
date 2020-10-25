@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import xyz.pavelkorolev.randomuser.core.extensions.getText
 import xyz.pavelkorolev.randomuser.core.model.NavigationAction
 import xyz.pavelkorolev.randomuser.core.model.NavigationIcon
 import xyz.pavelkorolev.randomuser.core.model.Text
@@ -19,7 +20,7 @@ fun Toolbar.setup(
     title: Text = Text.Resource(R.string.app_name),
     navigationIcon: NavigationIcon = NavigationIcon.None
 ) {
-    this.title = getTitle(context, title)
+    this.title = context.getText(title)
     this.navigationIcon = getNavigationIconDrawable(context, navigationIcon)
 
     val navigationAction = getNavigationClickAction(navigationIcon)
@@ -27,17 +28,6 @@ fun Toolbar.setup(
     this.setNavigationOnClickListener {
         navigationAction()
     }
-}
-
-/**
- * Returns string title from plain string or resource
- */
-private fun getTitle(
-    context: Context,
-    text: Text
-): String = when (text) {
-    is Text.Message -> text.message
-    is Text.Resource -> context.getString(text.resId)
 }
 
 /**

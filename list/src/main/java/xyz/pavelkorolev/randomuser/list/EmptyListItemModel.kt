@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelWithHolder
+import xyz.pavelkorolev.randomuser.core.extensions.getText
 import xyz.pavelkorolev.randomuser.core.model.Text
 
 /**
@@ -30,12 +31,8 @@ class EmptyListItemModel(
     override fun createNewHolder(): ViewHolder = ViewHolder()
 
     override fun bind(holder: ViewHolder) {
-        val resources = holder.messageTextView.resources
-        val message = when (text) { // TODO move out of model binding
-            is Text.Resource -> resources.getString(text.resId)
-            is Text.Message -> text.message
-        }
-        holder.messageTextView.text = message
+        val context = holder.messageTextView.context
+        holder.messageTextView.text = context.getText(text)
     }
 
     override fun equals(other: Any?): Boolean {
