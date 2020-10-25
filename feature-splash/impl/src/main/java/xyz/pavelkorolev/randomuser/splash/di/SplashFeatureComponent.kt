@@ -1,9 +1,9 @@
 package xyz.pavelkorolev.randomuser.splash.di
 
 import androidx.fragment.app.Fragment
+import com.github.terrakok.cicerone.Router
 import dagger.BindsInstance
 import dagger.Component
-import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 
 @Component(

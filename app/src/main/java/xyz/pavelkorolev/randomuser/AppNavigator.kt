@@ -4,32 +4,26 @@ import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
-import ru.terrakok.cicerone.android.support.SupportAppNavigator
-import ru.terrakok.cicerone.commands.Command
-import ru.terrakok.cicerone.commands.Forward
+import com.github.terrakok.cicerone.androidx.AppNavigator
 
 class AppNavigator(
     activity: FragmentActivity,
     @IdRes containerId: Int
-) : SupportAppNavigator(
+) : AppNavigator(
     activity,
     containerId
 ) {
 
     override fun setupFragmentTransaction(
-        command: Command,
+        fragmentTransaction: FragmentTransaction,
         currentFragment: Fragment?,
-        nextFragment: Fragment?,
-        fragmentTransaction: FragmentTransaction
+        nextFragment: Fragment?
     ) {
-        when (command) {
-            is Forward -> fragmentTransaction.setCustomAnimations(
-                R.anim.enter_from_right,
-                R.anim.exit_to_left,
-                R.anim.enter_from_left,
-                R.anim.exit_to_right
-            )
-            else -> return
-        }
+        fragmentTransaction.setCustomAnimations(
+            R.anim.enter_from_right,
+            R.anim.exit_to_left,
+            R.anim.enter_from_left,
+            R.anim.exit_to_right
+        )
     }
 }

@@ -2,6 +2,7 @@ package xyz.pavelkorolev.randomuser.generateuser.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.BroadcastChannel
@@ -10,7 +11,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
-import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.generateuser.domain.GenerateUsersUseCase
 import javax.inject.Inject
 

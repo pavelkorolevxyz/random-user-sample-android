@@ -2,6 +2,7 @@ package xyz.pavelkorolev.randomuser.about.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.github.terrakok.cicerone.Router
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.BroadcastChannel
@@ -10,7 +11,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
-import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.about.domain.LoadLibrariesUseCase
 import xyz.pavelkorolev.randomuser.about.domain.LoadVersionUseCase
 import xyz.pavelkorolev.randomuser.about.navigation.TwitterScreen
@@ -78,6 +78,6 @@ class AboutViewModel @Inject constructor(
      * Called on twitter link click
      */
     fun onTwitterClick() {
-        router.navigateTo(TwitterScreen())
+        router.navigateTo(TwitterScreen)
     }
 }

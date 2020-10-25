@@ -1,6 +1,6 @@
 package xyz.pavelkorolev.randomuser.userlist.di
 
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.userlist.UserListFeatureApi
 import xyz.pavelkorolev.randomuser.userlist.navigation.UserListScreen
 import javax.inject.Inject
@@ -13,6 +13,6 @@ class UserListFeatureApiImpl @Inject constructor(
 ) : UserListFeatureApi {
 
     override fun replaceUserList() {
-        router.replaceScreen(UserListScreen())
+        router.replaceScreen(UserListScreen)
     }
 }

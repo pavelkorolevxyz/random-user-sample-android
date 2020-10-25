@@ -1,12 +1,12 @@
 package xyz.pavelkorolev.randomuser.di
 
 import androidx.fragment.app.FragmentActivity
+import com.github.terrakok.cicerone.Cicerone
+import com.github.terrakok.cicerone.Navigator
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import dagger.Module
 import dagger.Provides
-import ru.terrakok.cicerone.Cicerone
-import ru.terrakok.cicerone.Navigator
-import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.AppNavigator
 import javax.inject.Scope
 
@@ -30,7 +30,7 @@ internal object NavigationModule {
     @Provides
     fun providesNavigatorHolder(
         cicerone: Cicerone<Router>
-    ): NavigatorHolder = cicerone.navigatorHolder
+    ): NavigatorHolder = cicerone.getNavigatorHolder()
 
     @NavigationScope
     @Provides

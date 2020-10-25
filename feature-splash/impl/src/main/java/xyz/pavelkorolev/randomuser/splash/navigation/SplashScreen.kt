@@ -1,13 +1,11 @@
 package xyz.pavelkorolev.randomuser.splash.navigation
 
-import androidx.fragment.app.Fragment
-import ru.terrakok.cicerone.android.support.SupportAppScreen
+import com.github.terrakok.cicerone.androidx.FragmentScreen
 import xyz.pavelkorolev.randomuser.splash.view.SplashFragment
 
 /**
  * Splash Screen navigation description
  */
-class SplashScreen : SupportAppScreen() {
-
-    override fun getFragment(): Fragment = SplashFragment.newInstance()
+val SplashScreen = FragmentScreen("splash") {
+    SplashFragment.newInstance()
 }

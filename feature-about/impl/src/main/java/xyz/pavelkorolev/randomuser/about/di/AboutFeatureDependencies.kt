@@ -1,7 +1,7 @@
 package xyz.pavelkorolev.randomuser.about.di
 
 import android.app.Application
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Router
 
 interface AboutFeatureDependencies {
 

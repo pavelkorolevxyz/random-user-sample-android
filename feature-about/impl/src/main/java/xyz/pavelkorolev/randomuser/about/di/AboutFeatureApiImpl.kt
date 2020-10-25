@@ -1,6 +1,6 @@
 package xyz.pavelkorolev.randomuser.about.di
 
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.about.AboutFeatureApi
 import xyz.pavelkorolev.randomuser.about.navigation.AboutScreen
 import javax.inject.Inject
@@ -13,6 +13,6 @@ class AboutFeatureApiImpl @Inject constructor(
 ) : AboutFeatureApi {
 
     override fun navigateToAbout() {
-        router.navigateTo(AboutScreen())
+        router.navigateTo(AboutScreen)
     }
 }

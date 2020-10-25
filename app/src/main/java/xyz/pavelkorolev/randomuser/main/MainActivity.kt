@@ -1,9 +1,9 @@
 package xyz.pavelkorolev.randomuser.main
 
 import android.os.Bundle
-import ru.terrakok.cicerone.Navigator
-import ru.terrakok.cicerone.NavigatorHolder
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Navigator
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.BaseActivity
 import xyz.pavelkorolev.randomuser.about.di.AboutFeatureDependencies
 import xyz.pavelkorolev.randomuser.core.extensions.lazyUi

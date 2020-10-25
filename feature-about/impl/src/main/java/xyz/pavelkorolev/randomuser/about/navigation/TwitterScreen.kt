@@ -1,18 +1,14 @@
 package xyz.pavelkorolev.randomuser.about.navigation
 
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import ru.terrakok.cicerone.android.support.SupportAppScreen
+import com.github.terrakok.cicerone.androidx.ActivityScreen
 
 /**
  * Twitter link navigation description
  */
-class TwitterScreen : SupportAppScreen() {
-
-    override fun getActivityIntent(
-        context: Context
-    ): Intent? = Intent(
+val TwitterScreen = ActivityScreen("twitter") {
+    Intent(
         Intent.ACTION_VIEW,
         Uri.parse("https://twitter.com/pavelkorolevxyz")
     )

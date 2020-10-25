@@ -1,6 +1,6 @@
 package xyz.pavelkorolev.randomuser.generateuser.di
 
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.network.UserApiRepository

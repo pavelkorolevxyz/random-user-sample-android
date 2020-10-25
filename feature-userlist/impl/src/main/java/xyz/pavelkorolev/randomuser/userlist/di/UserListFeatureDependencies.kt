@@ -1,6 +1,6 @@
 package xyz.pavelkorolev.randomuser.userlist.di
 
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.ImageLoader
 import xyz.pavelkorolev.randomuser.about.AboutFeatureApi
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository

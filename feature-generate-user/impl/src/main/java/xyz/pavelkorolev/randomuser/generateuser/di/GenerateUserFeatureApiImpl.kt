@@ -1,6 +1,6 @@
 package xyz.pavelkorolev.randomuser.generateuser.di
 
-import ru.terrakok.cicerone.Router
+import com.github.terrakok.cicerone.Router
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.generateuser.navigation.GenerateUserScreen
 import javax.inject.Inject
@@ -13,6 +13,6 @@ class GenerateUserFeatureApiImpl @Inject constructor(
 ) : GenerateUserFeatureApi {
 
     override fun navigateToGenerateUser() {
-        router.navigateTo(GenerateUserScreen())
+        router.navigateTo(GenerateUserScreen)
     }
 }

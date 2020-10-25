@@ -2,10 +2,10 @@ package xyz.pavelkorolev.randomuser.main
 
 import android.app.Application
 import androidx.fragment.app.FragmentActivity
+import com.github.terrakok.cicerone.Navigator
+import com.github.terrakok.cicerone.NavigatorHolder
 import dagger.BindsInstance
 import dagger.Component
-import ru.terrakok.cicerone.Navigator
-import ru.terrakok.cicerone.NavigatorHolder
 import xyz.pavelkorolev.randomuser.about.di.AboutFeatureDependencies
 import xyz.pavelkorolev.randomuser.about.di.AboutFeatureModule
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
