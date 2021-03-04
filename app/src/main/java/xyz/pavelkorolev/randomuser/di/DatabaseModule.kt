@@ -3,6 +3,7 @@ package xyz.pavelkorolev.randomuser.di
 import android.app.Application
 import dagger.Module
 import dagger.Provides
+import kotlinx.coroutines.Dispatchers
 import xyz.pavelkorolev.randomuser.database.DatabaseService
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepositoryImpl
@@ -31,7 +32,11 @@ internal object DatabaseModule {
     fun provideUserDatabaseRepository(
         databaseService: DatabaseService,
         userMapper: UserDatabaseEntityMapper
-    ): UserDatabaseRepository = UserDatabaseRepositoryImpl(databaseService, userMapper)
+    ): UserDatabaseRepository = UserDatabaseRepositoryImpl(
+        databaseService,
+        Dispatchers.IO,
+        userMapper
+    )
 
     @DatabaseScope
     @Provides

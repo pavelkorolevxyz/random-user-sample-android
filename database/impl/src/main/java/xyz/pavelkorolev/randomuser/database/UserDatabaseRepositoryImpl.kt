@@ -1,6 +1,6 @@
 package xyz.pavelkorolev.randomuser.database
 
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import xyz.pavelkorolev.randomuser.database.domain.UserDatabaseEntityMapper
 import xyz.pavelkorolev.randomuser.model.User
@@ -10,20 +10,21 @@ import xyz.pavelkorolev.randomuser.model.User
  */
 class UserDatabaseRepositoryImpl(
     databaseService: DatabaseService,
+    private val dispatcher: CoroutineDispatcher,
     private val userMapper: UserDatabaseEntityMapper
 ) : UserDatabaseRepository {
 
     private val database = databaseService.getDatabase()
 
     override suspend fun selectUsers(): Result<List<User>> = runCatching {
-        withContext(Dispatchers.IO) {
+        withContext(dispatcher) {
             val databaseUsers = database.userQueries.selectAll().executeAsList()
             databaseUsers.map { userMapper.map(it) }
         }
     }
 
     override suspend fun insertUsers(users: List<User>): Result<Unit> = runCatching {
-        withContext(Dispatchers.IO) {
+        withContext(dispatcher) {
             val databaseUsers = users.map { userMapper.reverseMap(it) }
             database.userQueries.transaction {
                 for (user in databaseUsers) {
@@ -38,7 +39,7 @@ class UserDatabaseRepositoryImpl(
     }
 
     override suspend fun delete(id: Long): Result<Unit> = kotlin.runCatching {
-        withContext(Dispatchers.IO) {
+        withContext(dispatcher) {
             database.userQueries.delete(id)
         }
     }
