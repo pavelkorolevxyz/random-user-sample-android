@@ -1,9 +1,10 @@
 package xyz.pavelkorolev.randomuser.di
 
+import android.app.Application
+import android.content.pm.ApplicationInfo
 import dagger.Module
 import dagger.Provides
 import io.ktor.client.HttpClient
-import xyz.pavelkorolev.randomuser.BuildConfig
 import xyz.pavelkorolev.randomuser.logging.LoggingService
 import xyz.pavelkorolev.randomuser.network.HttpClientFactory
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
@@ -24,11 +25,15 @@ internal object NetworkModule {
     @NetworkScope
     @Provides
     fun provideHttpClient(
+        application: Application,
         loggingService: LoggingService
-    ): HttpClient = HttpClientFactory.create(
-        loggingService,
-        BuildConfig.DEBUG
-    )
+    ): HttpClient {
+        val isDebuggable = 0 != application.applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE
+        return HttpClientFactory.create(
+            loggingService,
+            isDebuggable
+        )
+    }
 
     @NetworkScope
     @Provides

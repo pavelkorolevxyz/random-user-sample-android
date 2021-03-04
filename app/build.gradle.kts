@@ -49,6 +49,10 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = false
+    }
+
     lintOptions {
         isCheckReleaseBuilds = false
     }

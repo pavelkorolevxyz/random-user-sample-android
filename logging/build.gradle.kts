@@ -2,9 +2,6 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
 }
-apply {
-    plugin("kotlin-android")
-}
 
 android {
     compileSdkVersion(AppConfig.compileSdkVersion)
@@ -16,6 +13,10 @@ android {
 
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
+    }
+
+    buildFeatures {
+        buildConfig = false
     }
 
     compileOptions {

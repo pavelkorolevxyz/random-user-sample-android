@@ -15,6 +15,10 @@ android {
         versionName = AppConfig.versionName
     }
 
+    buildFeatures {
+        buildConfig = false
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -26,5 +30,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
+    // No dependencies
 }
