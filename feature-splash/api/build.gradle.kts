@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
 }
 
 android {
@@ -16,10 +15,6 @@ android {
         versionName = AppConfig.versionName
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -31,14 +26,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":ui"))
-
-    implementation(Dependencies.dagger)
-    kapt(Dependencies.daggerCompiler)
-
-    implementation(Dependencies.androidxViewModel)
-    implementation(Dependencies.androidxRecyclerView)
-
-    implementation(Dependencies.cicerone)
+    // No dependencies
 }
