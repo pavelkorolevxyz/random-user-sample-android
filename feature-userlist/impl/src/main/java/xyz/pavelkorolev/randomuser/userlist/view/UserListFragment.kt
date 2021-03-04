@@ -51,7 +51,7 @@ class UserListFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = UserListFragmentBinding.inflate(inflater, container, false).also {
+    ): View = UserListFragmentBinding.inflate(inflater, container, false).also {
         binding = it
     }.root
 

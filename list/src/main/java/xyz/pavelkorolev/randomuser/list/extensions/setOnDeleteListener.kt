@@ -14,7 +14,7 @@ inline fun <reified T : EpoxyModel<*>> RecyclerView.setOnDeleteListener(
 ) {
     EpoxyTouchHelper.initSwiping(this)
         .left()
-        .withTarget<T>(listItemModelClass)
+        .withTarget(listItemModelClass)
         .andCallbacks(object : EpoxyTouchHelper.SwipeCallbacks<T>() {
 
             override fun onSwipeCompleted(

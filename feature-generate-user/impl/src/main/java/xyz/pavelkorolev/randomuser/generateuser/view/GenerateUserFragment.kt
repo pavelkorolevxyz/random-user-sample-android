@@ -47,7 +47,7 @@ class GenerateUserFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = GenerateUserFragmentBinding.inflate(inflater, container, false).also {
+    ): View = GenerateUserFragmentBinding.inflate(inflater, container, false).also {
         binding = it
     }.root
 
