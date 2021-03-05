@@ -1,6 +1,7 @@
 package xyz.pavelkorolev.randomuser.userlist.view.models
 
 import android.view.View
+import android.view.ViewParent
 import android.widget.ImageView
 import android.widget.TextView
 import com.airbnb.epoxy.EpoxyHolder
@@ -37,7 +38,7 @@ class UserListItemModel(
 
     override fun getDefaultLayout(): Int = R.layout.user_list_item
 
-    override fun createNewHolder(): ViewHolder = ViewHolder()
+    override fun createNewHolder(parent: ViewParent): ViewHolder = ViewHolder()
 
     override fun bind(holder: ViewHolder) {
         holder.nameTextView.text = name

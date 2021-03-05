@@ -1,6 +1,7 @@
 package xyz.pavelkorolev.randomuser.about.view.models
 
 import android.view.View
+import android.view.ViewParent
 import android.widget.TextView
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelWithHolder
@@ -34,7 +35,7 @@ data class TitleValueListItemModel(
 
     override fun getDefaultLayout(): Int = R.layout.title_value_list_item
 
-    override fun createNewHolder(): ViewHolder = ViewHolder()
+    override fun createNewHolder(parent: ViewParent): ViewHolder = ViewHolder()
 
     override fun bind(holder: ViewHolder) {
         holder.titleTextView.text = title

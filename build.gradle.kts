@@ -9,7 +9,6 @@ buildscript {
         classpath(Dependencies.androidPlugin)
         classpath(Dependencies.kotlinPlugin)
         classpath(Dependencies.sqlDelightPlugin)
-        classpath(Dependencies.androidJunit5)
     }
 }
 
@@ -45,4 +44,17 @@ subprojects {
             "-Xallow-result-return-type"
         )
     }
+}
+
+tasks.withType<com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask>() {
+
+    fun isStable(version: String): Boolean {
+        val stableKeyword = listOf("RELEASE", "FINAL", "GA").any {
+            version.toUpperCase().contains(it)
+        }
+        val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+        return stableKeyword || regex.matches(version)
+    }
+
+    rejectVersionIf { !isStable(candidate.version) }
 }

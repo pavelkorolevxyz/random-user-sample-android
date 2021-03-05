@@ -2,7 +2,6 @@ plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
-    id("de.mannodermaus.android-junit5")
 }
 
 android {
@@ -32,6 +31,10 @@ android {
     }
 }
 
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
+
 dependencies {
     implementation(project(":core"))
     implementation(project(":database:api"))
@@ -52,8 +55,8 @@ dependencies {
     implementation(Dependencies.cicerone)
 
     // Test dependencies
-    testImplementation(Dependencies.spekJvm)
-    testRuntimeOnly(Dependencies.spekRunnerJunit5)
-    testImplementation(Dependencies.assertJ)
+    testImplementation(Dependencies.kotestRunnerJunit5)
+    testImplementation(Dependencies.kotestAssert)
+    testImplementation(Dependencies.mockk)
     testImplementation(Dependencies.coroutinesTest)
 }

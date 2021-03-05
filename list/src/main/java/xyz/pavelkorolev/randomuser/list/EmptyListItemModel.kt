@@ -1,6 +1,7 @@
 package xyz.pavelkorolev.randomuser.list
 
 import android.view.View
+import android.view.ViewParent
 import android.widget.TextView
 import com.airbnb.epoxy.EpoxyHolder
 import com.airbnb.epoxy.EpoxyModelWithHolder
@@ -28,7 +29,7 @@ class EmptyListItemModel(
 
     override fun getDefaultLayout(): Int = R.layout.empty_list_item
 
-    override fun createNewHolder(): ViewHolder = ViewHolder()
+    override fun createNewHolder(parent: ViewParent): ViewHolder = ViewHolder()
 
     override fun bind(holder: ViewHolder) {
         val context = holder.messageTextView.context

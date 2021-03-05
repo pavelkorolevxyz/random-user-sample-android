@@ -1,9 +1,9 @@
-package xyz.pavelkorolev.randomuser.generateuser.domain
+package xyz.pavelkorolev.randomuser.generateuser.domain.fakes
 
 import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
 
-internal class MockUsersApiRepository : UserApiRepository {
+internal class FakeUsersApiRepository : UserApiRepository {
 
     var getUsersResult: Result<List<User>> = Result.success(emptyList())
 

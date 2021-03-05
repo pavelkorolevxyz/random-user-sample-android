@@ -1,9 +1,9 @@
-package xyz.pavelkorolev.randomuser.generateuser.domain
+package xyz.pavelkorolev.randomuser.generateuser.domain.fakes
 
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.model.User
 
-internal class MockUserDatabaseRepository : UserDatabaseRepository {
+internal class FakeUserDatabaseRepository : UserDatabaseRepository {
 
     var insertUsersResult: Result<Unit> = Result.success(Unit)
 

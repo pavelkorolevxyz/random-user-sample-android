@@ -14,8 +14,8 @@ class GenerateUsersUseCase @Inject constructor(
     private val userDatabaseUpdater: UserDatabaseUpdater
 ) {
 
-    suspend operator fun invoke(count: Int): Result<Unit> = runCatching {
-        val users = userApiRepository.getUsers(count).getOrThrow()
+    suspend operator fun invoke(amount: Int): Result<Unit> = runCatching {
+        val users = userApiRepository.getUsers(amount).getOrThrow()
         userDatabaseRepository.insertUsers(users).getOrThrow()
         userDatabaseUpdater.requestUpdate(Unit)
     }
