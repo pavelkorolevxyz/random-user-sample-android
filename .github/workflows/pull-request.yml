@@ -22,7 +22,7 @@ jobs:
                 run: chmod +x ./gradlew
 
             -   name: ktlint
-                run: ./gradlew ktlintReleaseCheck
+                run: ./gradlew ktlintCheck
 
             -   name: Unit testing
                 run: ./gradlew testReleaseUnitTest

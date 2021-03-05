@@ -31,7 +31,7 @@ jobs:
                 run: ./gradlew lintRelease
 
             -   name: ktlint
-                run: ./gradlew ktlintReleaseCheck
+                run: ./gradlew ktlintCheck
 
             -   name: Unit testing
                 run: ./gradlew testReleaseUnitTest
