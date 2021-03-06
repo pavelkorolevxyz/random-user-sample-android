@@ -20,7 +20,8 @@ include(
     ":network:impl",
     ":startup",
     ":ui",
-    ":updater"
+    ":updater",
+    ":utils-test"
 )
 
 rootProject.name = "random-user-sample-android"

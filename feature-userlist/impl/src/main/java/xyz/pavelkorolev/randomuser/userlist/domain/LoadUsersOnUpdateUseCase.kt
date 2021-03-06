@@ -2,6 +2,7 @@ package xyz.pavelkorolev.randomuser.userlist.domain
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import xyz.pavelkorolev.randomuser.core.model.Try
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.model.User
@@ -15,7 +16,7 @@ class LoadUsersOnUpdateUseCase @Inject constructor(
     private val userDatabaseRepository: UserDatabaseRepository
 ) {
 
-    operator fun invoke(): Flow<Result<List<User>>> = userDatabaseUpdater
+    operator fun invoke(): Flow<Try<List<User>>> = userDatabaseUpdater
         .updatesFlow
         .map {
             userDatabaseRepository.selectUsers()

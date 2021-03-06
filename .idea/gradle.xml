@@ -41,6 +41,7 @@
             <option value="$PROJECT_DIR$/startup" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/updater" />
+            <option value="$PROJECT_DIR$/utils-test" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

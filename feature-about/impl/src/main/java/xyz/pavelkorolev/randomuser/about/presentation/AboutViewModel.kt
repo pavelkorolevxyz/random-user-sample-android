@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import xyz.pavelkorolev.randomuser.about.domain.LoadLibrariesUseCase
 import xyz.pavelkorolev.randomuser.about.domain.LoadVersionUseCase
 import xyz.pavelkorolev.randomuser.about.navigation.TwitterScreen
+import xyz.pavelkorolev.randomuser.core.model.Try
 import javax.inject.Inject
 
 /**
@@ -49,10 +50,10 @@ class AboutViewModel @Inject constructor(
     }
 
     private fun loadVersion() {
-        loadVersionUseCase()
-            .onSuccess { version ->
-                _versionStateFlow.value = version
-            }
+        when (val result = loadVersionUseCase()) {
+            is Try.Success -> _versionStateFlow.value = result.value
+            is Try.Failure -> Unit
+        }
     }
 
     /**
@@ -60,10 +61,10 @@ class AboutViewModel @Inject constructor(
      */
     fun onLibrariesClick() {
         viewModelScope.launch {
-            loadLibrariesUseCase()
-                .onSuccess {
-                    _librariesBroadcastChannel.send(it)
-                }
+            when (val result = loadLibrariesUseCase()) {
+                is Try.Success -> _librariesBroadcastChannel.send(result.value)
+                is Try.Failure -> Unit
+            }
         }
     }
 

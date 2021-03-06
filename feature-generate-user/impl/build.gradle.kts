@@ -55,6 +55,7 @@ dependencies {
     implementation(Dependencies.cicerone)
 
     // Test dependencies
+    testImplementation(project(":utils-test"))
     testImplementation(Dependencies.kotestRunnerJunit5)
     testImplementation(Dependencies.kotestAssert)
     testImplementation(Dependencies.mockk)

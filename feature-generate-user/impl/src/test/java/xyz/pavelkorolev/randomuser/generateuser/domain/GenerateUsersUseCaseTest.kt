@@ -1,25 +1,25 @@
 package xyz.pavelkorolev.randomuser.generateuser.domain
 
 import io.kotest.core.spec.style.ShouldSpec
-import io.kotest.matchers.result.shouldBeFailureOfType
-import io.kotest.matchers.result.shouldBeSuccess
 import io.mockk.clearAllMocks
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
-import io.mockk.spyk
+import xyz.pavelkorolev.randomuser.core.model.Try
+import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
 import xyz.pavelkorolev.randomuser.generateuser.domain.fakes.FakeApiException
 import xyz.pavelkorolev.randomuser.generateuser.domain.fakes.FakeDatabaseException
-import xyz.pavelkorolev.randomuser.generateuser.domain.fakes.FakeUserDatabaseRepository
-import xyz.pavelkorolev.randomuser.generateuser.domain.fakes.FakeUsersApiRepository
 import xyz.pavelkorolev.randomuser.model.User
+import xyz.pavelkorolev.randomuser.network.UserApiRepository
+import xyz.pavelkorolev.randomuser.utilstest.shouldBeFailureOfType
+import xyz.pavelkorolev.randomuser.utilstest.shouldBeSuccess
 
 class GenerateUsersUseCaseTest : ShouldSpec({
 
     context("generate users use case") {
-        val apiRepository: FakeUsersApiRepository = spyk()
-        val databaseRepository: FakeUserDatabaseRepository = spyk()
+        val apiRepository: UserApiRepository = mockk()
+        val databaseRepository: UserDatabaseRepository = mockk()
         val updater: UserDatabaseUpdater = mockk()
 
         val useCase = GenerateUsersUseCase(
@@ -44,7 +44,9 @@ class GenerateUsersUseCaseTest : ShouldSpec({
                 User("Ivan", "Ivanov", "http://example.com/1", 1),
                 User("John", "Smith", "http://example.com/2", 2),
             )
-            apiRepository.getUsersResult = Result.success(users)
+            coEvery {
+                apiRepository.getUsers(2)
+            } returns Try.Success(users)
             useCase(2)
             coVerify {
                 databaseRepository.insertUsers(users)
@@ -53,8 +55,8 @@ class GenerateUsersUseCaseTest : ShouldSpec({
 
         should("broadcast update event on success") {
             val users = listOf<User>()
-            apiRepository.getUsersResult = Result.success(users)
-            databaseRepository.insertUsersResult = Result.success(Unit)
+            coEvery { apiRepository.getUsers(1) } returns Try.Success(users)
+            coEvery { databaseRepository.insertUsers(users) } returns Try.Success(Unit)
             useCase(1)
             coVerify {
                 updater.requestUpdate(Unit)
@@ -62,26 +64,26 @@ class GenerateUsersUseCaseTest : ShouldSpec({
         }
 
         should("fail on network error") {
-            apiRepository.getUsersResult = Result.failure(FakeApiException())
+            coEvery { apiRepository.getUsers(1) } returns Try.Failure(FakeApiException())
             val result = useCase(1)
             result.shouldBeFailureOfType<FakeApiException>()
         }
 
         should("fail on database error") {
             val users = listOf<User>()
-            apiRepository.getUsersResult = Result.success(users)
-            databaseRepository.insertUsersResult = Result.failure(FakeDatabaseException())
+            coEvery { apiRepository.getUsers(1) } returns Try.Success(users)
+            coEvery { databaseRepository.insertUsers(users) } returns Try.Failure(FakeDatabaseException())
             val result = useCase(1)
             result.shouldBeFailureOfType<FakeDatabaseException>()
         }
 
         should("success if both network and database success") {
             val users = listOf<User>()
-            apiRepository.getUsersResult = Result.success(users)
-            databaseRepository.insertUsersResult = Result.success(Unit)
+            coEvery { apiRepository.getUsers(1) } returns Try.Success(users)
+            coEvery { databaseRepository.insertUsers(users) } returns Try.Success(Unit)
             coEvery { updater.requestUpdate(Unit) } returns Unit
             val result = useCase(1)
-            result.shouldBeSuccess(Unit)
+            result.shouldBeSuccess()
         }
     }
 })

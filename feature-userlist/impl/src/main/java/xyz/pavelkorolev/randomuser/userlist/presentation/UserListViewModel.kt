@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import xyz.pavelkorolev.randomuser.about.AboutFeatureApi
+import xyz.pavelkorolev.randomuser.core.model.Try
 import xyz.pavelkorolev.randomuser.generateuser.GenerateUserFeatureApi
 import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.userlist.domain.DeleteUserUseCase
@@ -67,14 +68,11 @@ class UserListViewModel @Inject constructor(
         }
     }
 
-    private suspend fun handleResult(result: Result<List<User>>) {
-        result
-            .onSuccess { users ->
-                _usersStateFlow.value = users
-            }
-            .onFailure {
-                _errorBroadcastChannel.send(it)
-            }
+    private suspend fun handleResult(result: Try<List<User>>) {
+        when (result) {
+            is Try.Success -> _usersStateFlow.value = result.value
+            is Try.Failure -> _errorBroadcastChannel.send(result.exception)
+        }
     }
 
     fun onAddButtonClick() {
