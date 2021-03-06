@@ -3,6 +3,8 @@ package xyz.pavelkorolev.randomuser.network
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
+import xyz.pavelkorolev.randomuser.core.model.Try
+import xyz.pavelkorolev.randomuser.core.model.runTryCatching
 import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.network.domain.UserNetworkEntityMapper
 import xyz.pavelkorolev.randomuser.network.models.UserResponseNetworkEntity
@@ -17,7 +19,7 @@ class UserApiRepositoryImpl(
 
     override suspend fun getUsers(
         amount: Int
-    ): Result<List<User>> = runCatching {
+    ): Try<List<User>> = runTryCatching {
         client.get<UserResponseNetworkEntity>(BASE_URL) {
             parameter("results", amount)
         }.result.map { userMapper.map(it) }

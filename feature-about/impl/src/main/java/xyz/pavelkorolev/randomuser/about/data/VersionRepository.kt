@@ -1,6 +1,8 @@
 package xyz.pavelkorolev.randomuser.about.data
 
 import android.app.Application
+import xyz.pavelkorolev.randomuser.core.model.Try
+import xyz.pavelkorolev.randomuser.core.model.runTryCatching
 import javax.inject.Inject
 
 /**
@@ -13,7 +15,7 @@ class VersionRepository @Inject constructor(
     /**
      * Returns application version name
      */
-    fun loadVersion(): Result<String> = runCatching {
+    fun loadVersion(): Try<String> = runTryCatching {
         val packageInfo = app.packageManager.getPackageInfo(app.packageName, 0)
         packageInfo.versionName
     }

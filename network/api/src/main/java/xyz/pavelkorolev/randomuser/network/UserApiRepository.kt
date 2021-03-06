@@ -1,5 +1,6 @@
 package xyz.pavelkorolev.randomuser.network
 
+import xyz.pavelkorolev.randomuser.core.model.Try
 import xyz.pavelkorolev.randomuser.model.User
 
 /**
@@ -10,5 +11,5 @@ interface UserApiRepository {
     /**
      * Returns given amount of users
      */
-    suspend fun getUsers(amount: Int): Result<List<User>>
+    suspend fun getUsers(amount: Int): Try<List<User>>
 }

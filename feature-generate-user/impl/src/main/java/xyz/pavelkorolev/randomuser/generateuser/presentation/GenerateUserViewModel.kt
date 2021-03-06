@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.launch
+import xyz.pavelkorolev.randomuser.core.model.Try
 import xyz.pavelkorolev.randomuser.generateuser.domain.GenerateUsersUseCase
 import javax.inject.Inject
 
@@ -47,13 +48,10 @@ class GenerateUserViewModel @Inject constructor(
     fun onGenerateButtonClick() {
         viewModelScope.launch {
             _loadingStateFlow.value = true
-            generateUsersUseCase.invoke(usersCount)
-                .onSuccess {
-                    router.exit()
-                }
-                .onFailure {
-                    _errorBroadcastChannel.send(it)
-                }
+            when (val result = generateUsersUseCase(usersCount)) {
+                is Try.Success -> router.exit()
+                is Try.Failure -> _errorBroadcastChannel.send(result.exception)
+            }
             _loadingStateFlow.value = false
         }
     }

@@ -40,8 +40,7 @@ subprojects {
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {
         kotlinOptions.freeCompilerArgs = listOf(
-            "-Xopt-in=kotlin.RequiresOptIn",
-            "-Xallow-result-return-type"
+            "-Xopt-in=kotlin.RequiresOptIn"
         )
     }
 }

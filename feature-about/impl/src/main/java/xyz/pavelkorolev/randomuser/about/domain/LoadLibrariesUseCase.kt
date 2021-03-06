@@ -1,6 +1,8 @@
 package xyz.pavelkorolev.randomuser.about.domain
 
 import xyz.pavelkorolev.randomuser.about.domain.model.Library
+import xyz.pavelkorolev.randomuser.core.model.Try
+import xyz.pavelkorolev.randomuser.core.model.runTryCatching
 import javax.inject.Inject
 
 /**
@@ -8,7 +10,7 @@ import javax.inject.Inject
  */
 class LoadLibrariesUseCase @Inject constructor() {
 
-    operator fun invoke(): Result<String> = runCatching {
+    operator fun invoke(): Try<String> = runTryCatching {
         val libraries = mutableListOf(
             Library(
                 "kotlinx.coroutines",
