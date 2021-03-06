@@ -32,5 +32,7 @@ android {
 dependencies {
     implementation(project(":core"))
 
+    implementation(Dependencies.kotestRunnerJunit5)
     implementation(Dependencies.kotestAssert)
+    implementation(Dependencies.coroutinesTest)
 }

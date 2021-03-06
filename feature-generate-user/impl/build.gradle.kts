@@ -60,4 +60,5 @@ dependencies {
     testImplementation(Dependencies.kotestAssert)
     testImplementation(Dependencies.mockk)
     testImplementation(Dependencies.coroutinesTest)
+    testImplementation(Dependencies.turbine)
 }

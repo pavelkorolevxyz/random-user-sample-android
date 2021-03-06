@@ -8,8 +8,8 @@ import io.mockk.mockk
 import xyz.pavelkorolev.randomuser.core.model.Try
 import xyz.pavelkorolev.randomuser.database.UserDatabaseRepository
 import xyz.pavelkorolev.randomuser.database.UserDatabaseUpdater
-import xyz.pavelkorolev.randomuser.generateuser.domain.fakes.FakeApiException
-import xyz.pavelkorolev.randomuser.generateuser.domain.fakes.FakeDatabaseException
+import xyz.pavelkorolev.randomuser.generateuser.testdata.FakeApiException
+import xyz.pavelkorolev.randomuser.generateuser.testdata.FakeDatabaseException
 import xyz.pavelkorolev.randomuser.model.User
 import xyz.pavelkorolev.randomuser.network.UserApiRepository
 import xyz.pavelkorolev.randomuser.utilstest.shouldBeFailureOfType
@@ -34,9 +34,7 @@ class GenerateUsersUseCaseTest : ShouldSpec({
 
         should("call network request with given amount") {
             useCase(5)
-            coVerify {
-                apiRepository.getUsers(5)
-            }
+            coVerify { apiRepository.getUsers(5) }
         }
 
         should("save users to database") {
@@ -44,13 +42,9 @@ class GenerateUsersUseCaseTest : ShouldSpec({
                 User("Ivan", "Ivanov", "http://example.com/1", 1),
                 User("John", "Smith", "http://example.com/2", 2),
             )
-            coEvery {
-                apiRepository.getUsers(2)
-            } returns Try.Success(users)
+            coEvery { apiRepository.getUsers(2) } returns Try.Success(users)
             useCase(2)
-            coVerify {
-                databaseRepository.insertUsers(users)
-            }
+            coVerify { databaseRepository.insertUsers(users) }
         }
 
         should("broadcast update event on success") {
@@ -58,9 +52,7 @@ class GenerateUsersUseCaseTest : ShouldSpec({
             coEvery { apiRepository.getUsers(1) } returns Try.Success(users)
             coEvery { databaseRepository.insertUsers(users) } returns Try.Success(Unit)
             useCase(1)
-            coVerify {
-                updater.requestUpdate(Unit)
-            }
+            coVerify { updater.requestUpdate(Unit) }
         }
 
         should("fail on network error") {

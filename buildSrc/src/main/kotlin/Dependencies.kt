@@ -66,4 +66,5 @@ object Dependencies {
     const val kotestAssert = "io.kotest:kotest-assertions-core:${Versions.kotest}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+    const val turbine = "app.cash.turbine:turbine:0.4.0"
 }
