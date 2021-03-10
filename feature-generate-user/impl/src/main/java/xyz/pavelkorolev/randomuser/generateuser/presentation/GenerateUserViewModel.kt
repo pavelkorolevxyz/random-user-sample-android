@@ -27,19 +27,20 @@ class GenerateUserViewModel @Inject constructor(
     private val _loadingStateFlow: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val loadingStateFlow: StateFlow<Boolean> get() = _loadingStateFlow
 
+    private val _amountStateFlow: MutableStateFlow<Int> = MutableStateFlow(1)
+    val amountStateFlow: StateFlow<Int> get() = _amountStateFlow
+
     private val _errorBroadcastChannel: BroadcastChannel<Throwable> = BroadcastChannel(1)
 
     @OptIn(FlowPreview::class)
     val errorFlow: Flow<Throwable>
         get() = _errorBroadcastChannel.asFlow()
 
-    private var usersCount = 1 // TODO synchronize state with UI
-
     /**
      * Called on user count change in UI
      */
     fun onUserCountChanged(count: Int) {
-        this.usersCount = count
+        _amountStateFlow.value = count
     }
 
     /**
@@ -48,7 +49,7 @@ class GenerateUserViewModel @Inject constructor(
     fun onGenerateButtonClick() {
         viewModelScope.launch {
             _loadingStateFlow.value = true
-            when (val result = generateUsersUseCase(usersCount)) {
+            when (val result = generateUsersUseCase(amountStateFlow.value)) {
                 is Try.Success -> router.exit()
                 is Try.Failure -> _errorBroadcastChannel.send(result.exception)
             }

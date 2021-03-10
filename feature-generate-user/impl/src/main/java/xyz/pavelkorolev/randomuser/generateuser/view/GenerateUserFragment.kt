@@ -74,6 +74,14 @@ class GenerateUserFragment : BaseFragment() {
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.amountStateFlow
+                .onEach { amount ->
+                    binding.numberPicker.value = amount
+                }
+                .collect()
+        }
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.loadingStateFlow
                 .onEach { isLoading ->
                     binding.progressBar.isInvisible = !isLoading
