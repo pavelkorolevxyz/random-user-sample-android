@@ -12,7 +12,7 @@ Playground to check out trendy android stuff.
 - ktor
 - kotlinx.serialization
 - SQLDelight
-- spek
+- kotest
 
 # Screens
 
