@@ -12,10 +12,6 @@ jobs:
         steps:
             -   name: Checkout
                 uses: actions/checkout@v2
-            -   name: Danger
-                uses: danger/kotlin@1.0.0-beta.3
-                env:
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             -   name: Set up environment
                 uses: actions/setup-java@v1
@@ -30,3 +26,9 @@ jobs:
 
             -   name: Unit testing
                 run: ./gradlew testReleaseUnitTest
+
+            -   name: Danger
+                if: always()
+                uses: danger/kotlin@1.0.0-beta.3
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
