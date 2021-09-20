@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id(Dependencies.ktlintPlugin.id) version Dependencies.ktlintPlugin.version
+    id(Dependencies.detektPlugin.id) version Dependencies.detektPlugin.version
     id(Dependencies.versionsPlugin.id) version Dependencies.versionsPlugin.version
     id(Dependencies.kotlinxSerializationPlugin.id) version Dependencies.kotlinxSerializationPlugin.version
 }
@@ -28,14 +28,22 @@ allprojects {
 }
 
 subprojects {
-    plugins.apply(Dependencies.ktlintPlugin.id)
+    plugins.apply(Dependencies.detektPlugin.id)
 
-    ktlint {
-        version.set("0.39.0")
-        android.set(true)
-        reporters {
-            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.JSON)
+    detekt {
+        parallel = true
+        reports {
+            xml {
+                enabled = true
+            }
+            html.enabled = false
+            txt.enabled = false
+            sarif.enabled = false
         }
+    }
+
+    dependencies {
+        detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1")
     }
 
     tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile::class).all {

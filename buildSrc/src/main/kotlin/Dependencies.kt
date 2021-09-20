@@ -25,9 +25,9 @@ object Dependencies {
         "org.jetbrains.kotlin.plugin.serialization",
         Versions.kotlin
     )
-    val ktlintPlugin = GradlePlugin(
-        "org.jlleitschuh.gradle.ktlint",
-        "10.0.0"
+    val detektPlugin = GradlePlugin(
+        "io.gitlab.arturbosch.detekt",
+        "1.18.1"
     )
     val versionsPlugin = GradlePlugin(
         "com.github.ben-manes.versions",

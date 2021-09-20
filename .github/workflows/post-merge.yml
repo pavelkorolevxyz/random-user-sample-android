@@ -30,8 +30,8 @@ jobs:
             -   name: Android Lint
                 run: ./gradlew lintRelease
 
-            -   name: ktlint
-                run: ./gradlew ktlintCheck
+            -   name: detekt
+                run: ./gradlew detekt
 
             -   name: Unit testing
                 run: ./gradlew testReleaseUnitTest
